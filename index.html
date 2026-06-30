@@ -62,7 +62,7 @@
   <!-- FONTS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,300&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700;800&family=Source+Sans+3:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     /* ============================================================
@@ -101,7 +101,7 @@
       --dark-border: rgba(255,255,255,0.08);
 
       /* Typography */
-      --font-body: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
+      --font-body: 'Noto Sans', sans-serif;
       --font-mono: 'JetBrains Mono', monospace;
 
       /* Layout */
@@ -169,6 +169,7 @@
        RESET
        ============================================================ */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Source Sans 3', 'Source Sans Pro', sans-serif; letter-spacing: -0.015em; }
     body {
       font-family: var(--font-body);
       background: var(--sand-50);
@@ -221,7 +222,7 @@
       gap: 0.02rem;
     }
     .logo-sans {
-      font-family: 'Plus Jakarta Sans', Inter, -apple-system, sans-serif;
+      font-family: 'Source Sans 3', 'Source Sans Pro', sans-serif;
       font-weight: 500;
     }
     .logo-serif {
