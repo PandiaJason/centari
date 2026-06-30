@@ -3711,9 +3711,31 @@
           <p style="font-size: 0.85rem; color: var(--ink-500); margin-bottom: 1.5rem; line-height: 1.4;">
             Detailed feature comparison and deployment architecture details for Centari LMS setups.
           </p>
+          <!-- Interactive Plan Compare Controls -->
+          <div class="compare-controls" style="display: flex; align-items: center; gap: 1.25rem; margin-bottom: 1.5rem; flex-wrap: wrap; background: var(--sand-100); border: 1px solid var(--sand-200); border-radius: 14px; padding: 0.75rem 1.15rem; box-shadow: inset 0 1px 2px rgba(0,0,0,0.02);">
+            <span style="font-weight: 800; color: var(--ink-900); font-size: 0.85rem; font-family: 'Source Sans 3', sans-serif; display: flex; align-items: center; gap: 0.45rem;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--terra);"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"></path></svg>
+              Compare Plans Side-by-Side:
+            </span>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+              <label style="display: inline-flex; align-items: center; gap: 0.4rem; cursor: pointer; font-size: 0.8rem; font-weight: 700; color: var(--ink-800); user-select: none;">
+                <input type="checkbox" checked value="starter" class="plan-toggle" style="accent-color: var(--terra); width: 15px; height: 15px; margin: 0; cursor: pointer;"> Starter
+              </label>
+              <label style="display: inline-flex; align-items: center; gap: 0.4rem; cursor: pointer; font-size: 0.8rem; font-weight: 700; color: var(--ink-800); user-select: none;">
+                <input type="checkbox" checked value="basic" class="plan-toggle" style="accent-color: var(--terra); width: 15px; height: 15px; margin: 0; cursor: pointer;"> Basic
+              </label>
+              <label style="display: inline-flex; align-items: center; gap: 0.4rem; cursor: pointer; font-size: 0.8rem; font-weight: 700; color: var(--ink-800); user-select: none;">
+                <input type="checkbox" checked value="standard" class="plan-toggle" style="accent-color: var(--terra); width: 15px; height: 15px; margin: 0; cursor: pointer;"> Standard
+              </label>
+              <label style="display: inline-flex; align-items: center; gap: 0.4rem; cursor: pointer; font-size: 0.8rem; font-weight: 700; color: var(--ink-800); user-select: none;">
+                <input type="checkbox" checked value="premium" class="plan-toggle" style="accent-color: var(--terra); width: 15px; height: 15px; margin: 0; cursor: pointer;"> Premium
+              </label>
+            </div>
+            <span style="font-size: 0.75rem; color: var(--ink-500); margin-left: auto; font-style: italic; font-weight: 500;">Uncheck plans to isolate columns (auto-scales text size for 2-plan views)</span>
+          </div>
           
           <div style="overflow-x: auto; -webkit-overflow-scrolling: touch;">
-            <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.825rem; min-width: 750px;">
+            <table id="infra-table" style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.825rem; min-width: 750px; transition: font-size 0.25s ease;">
               <thead>
                 <tr style="border-bottom: 2px solid var(--sand-200); color: var(--ink-900); font-weight: 700;">
                   <th style="padding: 0.75rem 0.5rem;">Layer</th>
@@ -4356,6 +4378,62 @@
 
         // Start 3D cursor-following mascot parallax
         initMascotParallax();
+
+        // Initialize side-by-side plan compare controls
+        initPlanCompare();
+      }
+
+      function initPlanCompare() {
+        const toggles = document.querySelectorAll('.plan-toggle');
+        const table = document.getElementById('infra-table');
+        
+        function updateTableLayout() {
+          const checkedToggles = Array.from(toggles).filter(cb => cb.checked);
+          const checkedCount = checkedToggles.length;
+          
+          if (!table) return;
+          
+          // Dynamically adjust font-size and padding for best readability
+          if (checkedCount <= 2) {
+            table.style.fontSize = '0.95rem';
+            table.querySelectorAll('td, th').forEach(cell => {
+              cell.style.setProperty('padding', '0.9rem 0.8rem', 'important');
+            });
+          } else if (checkedCount === 3) {
+            table.style.fontSize = '0.88rem';
+            table.querySelectorAll('td, th').forEach(cell => {
+              cell.style.setProperty('padding', '0.78rem 0.65rem', 'important');
+            });
+          } else {
+            table.style.fontSize = '0.825rem';
+            table.querySelectorAll('td, th').forEach(cell => {
+              cell.style.setProperty('padding', '0.65rem 0.5rem', 'important');
+            });
+          }
+        }
+        
+        toggles.forEach(checkbox => {
+          checkbox.addEventListener('change', (e) => {
+            const plan = e.target.value;
+            const visible = e.target.checked;
+            
+            let colIndex = 3;
+            if (plan === 'basic') colIndex = 4;
+            else if (plan === 'standard') colIndex = 5;
+            else if (plan === 'premium') colIndex = 6;
+            
+            document.querySelectorAll('#infra-table tr').forEach(row => {
+              const cells = row.children;
+              if (cells && cells[colIndex]) {
+                cells[colIndex].style.display = visible ? '' : 'none';
+              }
+            });
+            
+            updateTableLayout();
+          });
+        });
+        
+        updateTableLayout();
       }
 
       // Theme Control
