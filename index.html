@@ -230,6 +230,12 @@
     @media (max-width: 768px) {
       .mascot-container { display: none !important; }
     }
+    
+    @keyframes float-mascot {
+      0% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-6px) rotate(1.5deg); }
+      100% { transform: translateY(0px) rotate(0deg); }
+    }
     .logo-sans {
       font-family: 'Source Sans 3', 'Source Sans Pro', sans-serif;
       font-weight: 500;
@@ -2686,8 +2692,8 @@
             <p class="dashboard-subtext" id="dashboard-user-greeting" style="font-size: 1.05rem; font-weight: 500; color: rgba(255, 255, 255, 0.95); margin-bottom: 0.75rem;">Hello, Visitor</p>
             <p class="dashboard-quote" id="dashboard-quote-el" onclick="CentariApp.cycleQuote()" style="cursor: pointer;" title="Click to cycle quote">"Design is not just what it looks like and feels like. Design is how it works." — Steve Jobs</p>
           </div>
-          <div class="mascot-container" style="flex-shrink: 0; width: 130px; height: 130px; display: flex; align-items: center; justify-content: center; background: rgba(255, 255, 255, 0.12); border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.2); backdrop-filter: blur(10px); padding: 0.85rem;">
-            <img src="./mascot.png" alt="Centari Mascot" style="max-width: 100%; max-height: 100%; filter: drop-shadow(0 6px 12px rgba(0,0,0,0.12));" />
+          <div class="mascot-container" style="flex-shrink: 0; width: 140px; height: 140px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.04) 100%); border-radius: 28px; border: 1px solid rgba(255, 255, 255, 0.25); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); padding: 1rem; box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.4), 0 10px 25px rgba(0, 0, 0, 0.18), 0 4px 10px rgba(0, 0, 0, 0.08); transition: all 0.3s ease;">
+            <img src="./mascot.png" alt="Centari Mascot" style="max-width: 95%; max-height: 95%; filter: drop-shadow(0 6px 12px rgba(0,0,0,0.15)); animation: float-mascot 4s ease-in-out infinite;" />
           </div>
         </div>
 
