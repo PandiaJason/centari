@@ -5700,16 +5700,6 @@ Sent from centari LMS Portal`;
         container.style.position = 'relative';
         container.style.overflow = 'hidden';
 
-        // Add a placeholder text if not already present
-        let placeholder = container.querySelector('.mascot-placeholder-text');
-        if (!placeholder) {
-          placeholder = document.createElement('span');
-          placeholder.className = 'mascot-placeholder-text';
-          placeholder.style.cssText = "font-size:0.65rem;color:var(--ink-400);text-align:center;font-weight:600;pointer-events:none;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:none;font-family:'Source Sans 3',sans-serif;";
-          placeholder.textContent = 'Chasing...';
-          container.appendChild(placeholder);
-        }
-
         let isHiding = false;
         let lastScrollY = window.scrollY;
 
@@ -5737,7 +5727,6 @@ Sent from centari LMS Portal`;
               isHiding = true;
               container.style.borderStyle = 'dashed';
               container.style.borderColor = 'rgba(0,0,0,0.15)';
-              placeholder.style.display = 'block';
             }
 
             // Calculate translation vector opposite to the cursor direction
@@ -5756,7 +5745,6 @@ Sent from centari LMS Portal`;
               isHiding = false;
               container.style.borderStyle = 'solid';
               container.style.borderColor = 'rgba(255,255,255,0.9)';
-              placeholder.style.display = 'none';
             }
 
             // Tilt & follow cursor normally when far
