@@ -5655,14 +5655,16 @@ Sent from centari LMS Portal`;
           if (podiumAvatars[2]) podiumAvatars[2].textContent = periodData[2].name.charAt(0);
         }
 
-        const query = document.getElementById('leaderboard-search-input').value;
+        const searchInput = document.getElementById('leaderboard-search-input');
+        const query = searchInput ? searchInput.value : '';
         renderLeaderboardRows(period, query);
       }
 
       function filterLeaderboard() {
         const activeTab = document.querySelector('.standings-filter-tab.active');
         const period = activeTab ? activeTab.textContent.toLowerCase() : 'daily';
-        const query = document.getElementById('leaderboard-search-input').value;
+        const searchInput = document.getElementById('leaderboard-search-input');
+        const query = searchInput ? searchInput.value : '';
         renderLeaderboardRows(period, query);
       }
 
