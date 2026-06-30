@@ -3711,27 +3711,45 @@
           <p style="font-size: 0.85rem; color: var(--ink-500); margin-bottom: 1.5rem; line-height: 1.4;">
             Detailed feature comparison and deployment architecture details for Centari LMS setups.
           </p>
-          <!-- Interactive Plan Compare Controls -->
-          <div class="compare-controls" style="display: flex; align-items: center; gap: 1.25rem; margin-bottom: 1.5rem; flex-wrap: wrap; background: var(--sand-100); border: 1px solid var(--sand-200); border-radius: 14px; padding: 0.75rem 1.15rem; box-shadow: inset 0 1px 2px rgba(0,0,0,0.02);">
-            <span style="font-weight: 800; color: var(--ink-900); font-size: 0.85rem; font-family: 'Source Sans 3', sans-serif; display: flex; align-items: center; gap: 0.45rem;">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--terra);"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"></path></svg>
-              Compare Plans Side-by-Side:
-            </span>
-            <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
-              <label style="display: inline-flex; align-items: center; gap: 0.4rem; cursor: pointer; font-size: 0.8rem; font-weight: 700; color: var(--ink-800); user-select: none;">
-                <input type="checkbox" checked value="starter" class="plan-toggle" style="accent-color: var(--terra); width: 15px; height: 15px; margin: 0; cursor: pointer;"> Starter
-              </label>
-              <label style="display: inline-flex; align-items: center; gap: 0.4rem; cursor: pointer; font-size: 0.8rem; font-weight: 700; color: var(--ink-800); user-select: none;">
-                <input type="checkbox" checked value="basic" class="plan-toggle" style="accent-color: var(--terra); width: 15px; height: 15px; margin: 0; cursor: pointer;"> Basic
-              </label>
-              <label style="display: inline-flex; align-items: center; gap: 0.4rem; cursor: pointer; font-size: 0.8rem; font-weight: 700; color: var(--ink-800); user-select: none;">
-                <input type="checkbox" checked value="standard" class="plan-toggle" style="accent-color: var(--terra); width: 15px; height: 15px; margin: 0; cursor: pointer;"> Standard
-              </label>
-              <label style="display: inline-flex; align-items: center; gap: 0.4rem; cursor: pointer; font-size: 0.8rem; font-weight: 700; color: var(--ink-800); user-select: none;">
-                <input type="checkbox" checked value="premium" class="plan-toggle" style="accent-color: var(--terra); width: 15px; height: 15px; margin: 0; cursor: pointer;"> Premium
-              </label>
+          <!-- Apple-Style Plan Comparator Controls -->
+          <div class="compare-controls" style="display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; margin-bottom: 2rem; flex-wrap: wrap; background: var(--sand-100); border: 1px solid var(--sand-200); border-radius: 16px; padding: 1.25rem 1.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.02);">
+            <div style="display: flex; align-items: center; gap: 0.6rem;">
+              <span style="background: var(--terra); color: white; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"></path></svg>
+              </span>
+              <div>
+                <h4 style="margin: 0; font-size: 0.95rem; font-weight: 800; color: var(--ink-900); font-family: 'Source Sans 3', sans-serif;">Side-by-Side Plan Comparator</h4>
+                <p style="margin: 0; font-size: 0.72rem; color: var(--ink-500);">Compare any two plans with dynamic spec isolation</p>
+              </div>
             </div>
-            <span style="font-size: 0.75rem; color: var(--ink-500); margin-left: auto; font-style: italic; font-weight: 500;">Uncheck plans to isolate columns (auto-scales text size for 2-plan views)</span>
+            
+            <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
+              <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <span style="font-size: 0.78rem; font-weight: 700; color: var(--ink-600);">Plan A:</span>
+                <select id="compare-plan-a" style="background: white; border: 1px solid var(--sand-300); border-radius: 8px; padding: 0.4rem 2rem 0.4rem 0.75rem; font-size: 0.8rem; font-weight: 700; color: var(--ink-900); cursor: pointer; outline: none; transition: border-color 0.2s; appearance: none; -webkit-appearance: none; background-image: url('data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;%23b53f2c&quot; stroke-width=&quot;2.5&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;><polyline points=&quot;6 9 12 15 18 9&quot;></polyline></svg>'); background-repeat: no-repeat; background-position: right 0.5rem center; background-size: 14px;">
+                  <option value="starter" selected>Starter Plan</option>
+                  <option value="basic">Basic Plan</option>
+                  <option value="standard">Standard Plan</option>
+                  <option value="premium">Premium Plan</option>
+                </select>
+              </div>
+              
+              <span style="font-size: 0.8rem; font-weight: 700; color: var(--ink-400);">vs</span>
+              
+              <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <span style="font-size: 0.78rem; font-weight: 700; color: var(--ink-600);">Plan B:</span>
+                <select id="compare-plan-b" style="background: white; border: 1px solid var(--sand-300); border-radius: 8px; padding: 0.4rem 2rem 0.4rem 0.75rem; font-size: 0.8rem; font-weight: 700; color: var(--ink-900); cursor: pointer; outline: none; transition: border-color 0.2s; appearance: none; -webkit-appearance: none; background-image: url('data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;%23b53f2c&quot; stroke-width=&quot;2.5&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;><polyline points=&quot;6 9 12 15 18 9&quot;></polyline></svg>'); background-repeat: no-repeat; background-position: right 0.5rem center; background-size: 14px;">
+                  <option value="starter">Starter Plan</option>
+                  <option value="basic" selected>Basic Plan</option>
+                  <option value="standard">Standard Plan</option>
+                  <option value="premium">Premium Plan</option>
+                </select>
+              </div>
+              
+              <button onclick="CentariApp.resetCompareView()" style="background: none; border: none; color: var(--terra); font-size: 0.75rem; font-weight: 700; cursor: pointer; padding: 0 0.25rem; text-decoration: underline; text-underline-offset: 2px;">
+                Show All Plans
+              </button>
+            </div>
           </div>
           
           <div style="overflow-x: auto; -webkit-overflow-scrolling: touch;">
@@ -4384,55 +4402,76 @@
       }
 
       function initPlanCompare() {
-        const toggles = document.querySelectorAll('.plan-toggle');
+        const selectA = document.getElementById('compare-plan-a');
+        const selectB = document.getElementById('compare-plan-b');
         const table = document.getElementById('infra-table');
         
+        if (!selectA || !selectB || !table) return;
+        
+        let showAll = false;
+
         function updateTableLayout() {
-          const checkedToggles = Array.from(toggles).filter(cb => cb.checked);
-          const checkedCount = checkedToggles.length;
-          
-          if (!table) return;
-          
-          // Dynamically adjust font-size and padding for best readability
-          if (checkedCount <= 2) {
-            table.style.fontSize = '0.95rem';
-            table.querySelectorAll('td, th').forEach(cell => {
-              cell.style.setProperty('padding', '0.9rem 0.8rem', 'important');
+          if (showAll) {
+            // Show all columns (Indices 3, 4, 5, 6)
+            document.querySelectorAll('#infra-table tr').forEach(row => {
+              for (let i = 3; i <= 6; i++) {
+                if (row.children[i]) row.children[i].style.display = '';
+              }
             });
-          } else if (checkedCount === 3) {
-            table.style.fontSize = '0.88rem';
-            table.querySelectorAll('td, th').forEach(cell => {
-              cell.style.setProperty('padding', '0.78rem 0.65rem', 'important');
-            });
-          } else {
             table.style.fontSize = '0.825rem';
             table.querySelectorAll('td, th').forEach(cell => {
               cell.style.setProperty('padding', '0.65rem 0.5rem', 'important');
             });
+            return;
           }
+
+          const valA = selectA.value;
+          const valB = selectB.value;
+          
+          const planIndices = {
+            'starter': 3,
+            'basic': 4,
+            'standard': 5,
+            'premium': 6
+          };
+          
+          const activeIndexA = planIndices[valA];
+          const activeIndexB = planIndices[valB];
+          
+          document.querySelectorAll('#infra-table tr').forEach(row => {
+            for (let i = 3; i <= 6; i++) {
+              if (row.children[i]) {
+                const isSelected = (i === activeIndexA || i === activeIndexB);
+                row.children[i].style.display = isSelected ? '' : 'none';
+              }
+            }
+          });
+          
+          // Enlarge fonts and spacing because we're displaying only 1 or 2 plans!
+          const uniqueCount = (valA === valB) ? 1 : 2;
+          table.style.fontSize = uniqueCount === 1 ? '1.05rem' : '0.98rem';
+          table.querySelectorAll('td, th').forEach(cell => {
+            cell.style.setProperty('padding', uniqueCount === 1 ? '1.1rem 1rem' : '0.95rem 0.85rem', 'important');
+          });
         }
         
-        toggles.forEach(checkbox => {
-          checkbox.addEventListener('change', (e) => {
-            const plan = e.target.value;
-            const visible = e.target.checked;
-            
-            let colIndex = 3;
-            if (plan === 'basic') colIndex = 4;
-            else if (plan === 'standard') colIndex = 5;
-            else if (plan === 'premium') colIndex = 6;
-            
-            document.querySelectorAll('#infra-table tr').forEach(row => {
-              const cells = row.children;
-              if (cells && cells[colIndex]) {
-                cells[colIndex].style.display = visible ? '' : 'none';
-              }
-            });
-            
-            updateTableLayout();
-          });
+        selectA.addEventListener('change', () => {
+          showAll = false;
+          updateTableLayout();
         });
         
+        selectB.addEventListener('change', () => {
+          showAll = false;
+          updateTableLayout();
+        });
+        
+        // Expose global reset function
+        window.CentariApp.resetCompareView = function() {
+          showAll = true;
+          updateTableLayout();
+        };
+
+        // Initialize state
         updateTableLayout();
       }
 
