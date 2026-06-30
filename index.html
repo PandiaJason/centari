@@ -527,7 +527,7 @@
 
     .dashboard-grid {
       display: grid;
-      grid-template-columns: 1.8fr 1.2fr;
+      grid-template-columns: 1fr;
       gap: 1.75rem;
     }
     @media (max-width: 900px) {
@@ -2664,25 +2664,35 @@
 
 
 
-      /* Mobile header override: only show logo SVG */
+      /* Mobile header override: hide logo-serif for responsive space */
     @media (max-width: 900px) {
       .app-header-top .logo-serif {
         display: none !important;
       }
-      .app-header-top .header-navbar {
-        display: none !important;
-      }
-      .app-header-top .header-controls {
-        display: none !important;
-      }
-      .app-header-top .nav-hamburger {
-        display: none !important;
-      }
-      .app-header-top {
-        justify-content: center !important;
-      }
     }
     .ent-feat-card {
+      background: rgba(30, 41, 59, 0.02);
+      border: 1px solid var(--sand-200);
+      border-radius: 12px;
+      padding: 1.25rem;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+    .ent-feat-card:hover {
+      background: #ffffff !important;
+      border-color: var(--terra) !important;
+      box-shadow: 0 10px 25px -5px rgba(var(--terra-shadow), 0.08);
+      transform: translateY(-2px);
+    }
+    body.dark-mode .ent-feat-card {
+      background: rgba(255, 255, 255, 0.01);
+      border-color: rgba(255, 255, 255, 0.08);
+    }
+    body.dark-mode .ent-feat-card:hover {
+      background: rgba(255, 255, 255, 0.03) !important;
+    }\n      .ent-feat-card {
       background: rgba(30, 41, 59, 0.02);
       border: 1px solid var(--sand-200);
       border-radius: 12px;
@@ -2949,123 +2959,9 @@
             
           </div>
           
-          <!-- Right Column -->
-          <div class="dashboard-right-col">
-            
-            <!-- Interactive Sandbox Modules Section -->
-            <div class="section-title-dashboard">
-              <span class="section-title-text orange">Interactive Sandbox Modules</span>
-            </div>
-            
-            <!-- Sandbox Card 1 -->
-            <div class="test-card-dashboard sandbox-card-mcq" style="cursor: pointer; border-left: 3px solid var(--terra);" onclick="CentariApp.routeToTab('exams')">
-              <div class="test-card-header">
-                <span class="test-card-tag section">EXAM SUITE</span>
-                <span class="test-card-duration">UPSC/NEET/JEE</span>
-              </div>
-              <h4 class="test-card-title">MCQ Exam Suite Simulator</h4>
-              <div class="test-card-footer">
-                <span class="test-card-marks" style="color: var(--terra); font-weight: 600;">Launch Simulator &rarr;</span>
-                <span class="test-card-status" style="color: var(--success); background: rgba(16, 185, 129, 0.08); border-color: rgba(16, 185, 129, 0.15);">LIVE DEMO</span>
-              </div>
-            </div>
-            
-            <!-- Sandbox Card 2 -->
-            <div class="test-card-dashboard sandbox-card-drm" style="cursor: pointer; border-left: 3px solid #7c3aed;" onclick="CentariApp.routeToTab('drm')">
-              <div class="test-card-header">
-                <span class="test-card-tag mock">DRM Player</span>
-                <span class="test-card-duration">Secure Video</span>
-              </div>
-              <h4 class="test-card-title">Anti-Piracy DRM Player & Decryption Simulator</h4>
-              <div class="test-card-footer">
-                <span class="test-card-marks" style="color: var(--terra); font-weight: 600;">Launch Simulator &rarr;</span>
-                <span class="test-card-status" style="color: var(--success); background: rgba(16, 185, 129, 0.08); border-color: rgba(16, 185, 129, 0.15);">LIVE DEMO</span>
-              </div>
-            </div>
-            
-            <!-- Sandbox Card 3 -->
-            <div class="test-card-dashboard sandbox-card-whiteboard" style="cursor: pointer; border-left: 3px solid #059669;" onclick="CentariApp.routeToTab('live')">
-              <div class="test-card-header">
-                <span class="test-card-tag quiz">Whiteboard</span>
-                <span class="test-card-duration">Live Class</span>
-              </div>
-              <h4 class="test-card-title">Low-Latency Vector Whiteboard Coordinate Sync</h4>
-              <div class="test-card-footer">
-                <span class="test-card-marks" style="color: var(--terra); font-weight: 600;">Launch Simulator &rarr;</span>
-                <span class="test-card-status" style="color: var(--success); background: rgba(16, 185, 129, 0.08); border-color: rgba(16, 185, 129, 0.15);">LIVE DEMO</span>
-              </div>
-            </div>
-            
-            <!-- Weekly Ranks Section -->
-            <div class="section-title-dashboard" style="margin-top: 1.5rem;">
-              <span class="section-title-text blue">Weekly Ranks</span>
-              <a href="#" class="section-link-dashboard" onclick="event.preventDefault(); CentariApp.routeToTab('leaderboard')">
-                View All 
-                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; margin-left:2px;"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-              </a>
-            </div>
-            <div class="dashboard-rank-list">
-              <div class="rank-row-dashboard">
-                <div class="rank-row-left">
-                  <div class="rank-num-badge first">1</div>
-                  <span class="rank-row-name">Ramesh Kumar</span>
-                </div>
-                <span class="rank-row-score">12,420 pts</span>
-              </div>
-              <div class="rank-row-dashboard">
-                <div class="rank-row-left">
-                  <div class="rank-num-badge second">2</div>
-                  <span class="rank-row-name">Priya Sharma</span>
-                </div>
-                <span class="rank-row-score">8,240 pts</span>
-              </div>
-              <div class="rank-row-dashboard">
-                <div class="rank-row-left">
-                  <div class="rank-num-badge third">3</div>
-                  <span class="rank-row-name">Ananya Das</span>
-                </div>
-                <span class="rank-row-score">4,110 pts</span>
-              </div>
-            </div>
-
-            <!-- System Telemetry Status Box -->
-            <div class="section-title-dashboard" style="margin-top: 1.5rem;">
-              <span class="section-title-text green">System Performance (Live)</span>
-            </div>
-            <div class="dashboard-white-card" style="display: block; text-align: left; padding: 1.25rem; min-height: auto;">
-              <!-- Pulsing Status Header -->
-              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; border-bottom: 1px solid var(--sand-200); padding-bottom: 0.75rem;">
-                <div style="display: flex; align-items: center; gap: 0.5rem;">
-                  <span style="display: inline-block; width: 8px; height: 8px; background: #10b981; border-radius: 50%; box-shadow: 0 0 8px #10b981; animation: pulse-green 1.5s infinite;"></span>
-                  <span style="font-size: 0.8rem; font-weight: 700; color: var(--ink-900);">All systems running smoothly</span>
-                </div>
-                <span style="font-size: 0.72rem; color: var(--success); font-weight: 700;">99.99% Reliable</span>
-              </div>
-              
-              <!-- Metrics Grid -->
-              <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; font-size: 0.8rem;">
-                <div style="background: rgba(30, 41, 59, 0.02); border: 1px solid var(--sand-200); border-radius: 8px; padding: 0.6rem 0.75rem; display: flex; flex-direction: column;">
-                  <span style="color: var(--ink-400); font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 0.15rem;">Students Online</span>
-                  <span style="font-weight: 800; color: var(--ink-900); font-family: monospace; font-size: 1.05rem; display: inline-flex; align-items: center; gap: 0.35rem;" id="telemetry-connections">1,482 <span style="display: inline-block; width: 6px; height: 6px; background: #10b981; border-radius: 50%; animation: pulse-green 1.2s infinite;"></span></span>
-                </div>
-                <div style="background: rgba(30, 41, 59, 0.02); border: 1px solid var(--sand-200); border-radius: 8px; padding: 0.6rem 0.75rem; display: flex; flex-direction: column;">
-                  <span style="color: var(--ink-400); font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 0.15rem;">Server Load</span>
-                  <span style="font-weight: 800; color: var(--ink-900); font-family: monospace; font-size: 1.05rem;" id="telemetry-cpu">34.2% (Normal)</span>
-                </div>
-                <div style="background: rgba(30, 41, 59, 0.02); border: 1px solid var(--sand-200); border-radius: 8px; padding: 0.6rem 0.75rem; display: flex; flex-direction: column;">
-                  <span style="color: var(--ink-400); font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 0.15rem;">Video Load Boost</span>
-                  <span style="font-weight: 800; color: var(--ink-900); font-family: monospace; font-size: 1.05rem;">98.7% (Instant)</span>
-                </div>
-                <div style="background: rgba(30, 41, 59, 0.02); border: 1px solid var(--sand-200); border-radius: 8px; padding: 0.6rem 0.75rem; display: flex; flex-direction: column;">
-                  <span style="color: var(--ink-400); font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 0.15rem;">Whiteboard Delay</span>
-                  <span style="font-weight: 800; color: var(--ink-900); font-family: monospace; font-size: 1.05rem;" id="telemetry-latency">14 ms (Fast)</span>
-                </div>
-              </div>
-            </div>
           </div>
-        </div>
-
-              <!-- Enterprise Capabilities Section -->
+        
+                <!-- Enterprise Capabilities Section -->
         <div class="section-title-dashboard" style="margin-top: 2rem; margin-bottom: 1rem;">
           <span class="section-title-text purple">Enterprise Capabilities</span>
         </div>
