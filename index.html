@@ -384,40 +384,26 @@
        DASHBOARD PREMIUM COMPONENT STYLES
        ============================================================ */
     .welcome-hero-dashboard {
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.47) 100%);
+      background: linear-gradient(135deg, var(--terra-dark), var(--terra), var(--terra-light));
       border-radius: 24px;
       padding: 2.25rem;
-      box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.65), 0 10px 30px rgba(var(--terra-shadow), 0.04);
-      border: 1px solid rgba(var(--terra-shadow), 0.16);
+      box-shadow: 0 10px 25px rgba(var(--terra-shadow), 0.08);
       margin-bottom: 2rem;
-      color: var(--ink-900);
+      color: #ffffff;
       position: relative;
       overflow: hidden;
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-    }
-    body.dark-mode .welcome-hero-dashboard {
-      background: linear-gradient(135deg, rgba(30, 41, 59, 0.75) 0%, rgba(30, 41, 59, 0.45) 100%);
-      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.15), 0 10px 30px rgba(0, 0, 0, 0.25);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      color: #ffffff;
     }
     .badge-candidate-portal {
       display: inline-block;
       font-size: 0.65rem;
       font-weight: 700;
-      color: var(--terra);
-      border: 1px solid var(--terra-border);
-      background: var(--terra-tint);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      background: rgba(255, 255, 255, 0.15);
       padding: 0.25rem 0.6rem;
       border-radius: 6px;
       margin-bottom: 0.75rem;
       letter-spacing: 0.05em;
-    }
-    body.dark-mode .badge-candidate-portal {
-      color: var(--terra-light);
-      border-color: rgba(255,255,255,0.15);
-      background: rgba(255,255,255,0.06);
     }
     .welcome-hero-dashboard h1 {
       font-size: 1.85rem;
@@ -429,28 +415,19 @@
     .dashboard-quote {
       font-size: 0.9rem;
       font-style: italic;
-      color: var(--ink-500);
+      color: rgba(255, 255, 255, 0.85);
       margin-bottom: 0.5rem;
       transition: opacity 0.2s ease-in-out, text-decoration 0.2s;
     }
     .dashboard-quote:hover {
-      color: var(--terra);
+      color: #ffffff;
       text-decoration: underline;
-    }
-    body.dark-mode .dashboard-quote {
-      color: rgba(255,255,255,0.65);
-    }
-    body.dark-mode .dashboard-quote:hover {
-      color: var(--terra-light);
     }
     .dashboard-subtext {
       font-size: 1.05rem;
-      font-weight: 600;
-      color: var(--ink-700);
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.95);
       margin-bottom: 0.75rem;
-    }
-    body.dark-mode .dashboard-subtext {
-      color: rgba(255, 255, 255, 0.85);
     }
 
     .mascot-container {
