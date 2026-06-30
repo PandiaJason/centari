@@ -4408,15 +4408,34 @@
         
         if (!selectA || !selectB || !table) return;
         
+        // Cache original cells HTML and inline styles
+        const rowData = [];
+        const rows = document.querySelectorAll('#infra-table tr');
+        rows.forEach((row, rIdx) => {
+          rowData[rIdx] = {
+            starter: row.children[3] ? { html: row.children[3].innerHTML, style: row.children[3].getAttribute('style') || '' } : null,
+            basic: row.children[4] ? { html: row.children[4].innerHTML, style: row.children[4].getAttribute('style') || '' } : null,
+            standard: row.children[5] ? { html: row.children[5].innerHTML, style: row.children[5].getAttribute('style') || '' } : null,
+            premium: row.children[6] ? { html: row.children[6].innerHTML, style: row.children[6].getAttribute('style') || '' } : null
+          };
+        });
+
         let showAll = false;
 
         function updateTableLayout() {
           if (showAll) {
-            // Show all columns (Indices 3, 4, 5, 6)
-            document.querySelectorAll('#infra-table tr').forEach(row => {
-              for (let i = 3; i <= 6; i++) {
-                if (row.children[i]) row.children[i].style.display = '';
-              }
+            // Restore all columns
+            rows.forEach((row, rIdx) => {
+              const data = rowData[rIdx];
+              ['starter', 'basic', 'standard', 'premium'].forEach((pKey, iIdx) => {
+                const colIdx = 3 + iIdx;
+                const cell = row.children[colIdx];
+                if (cell && data[pKey]) {
+                  cell.innerHTML = data[pKey].html;
+                  cell.setAttribute('style', data[pKey].style);
+                  cell.style.display = '';
+                }
+              });
             });
             table.style.fontSize = '0.825rem';
             table.querySelectorAll('td, th').forEach(cell => {
@@ -4428,23 +4447,28 @@
           const valA = selectA.value;
           const valB = selectB.value;
           
-          const planIndices = {
-            'starter': 3,
-            'basic': 4,
-            'standard': 5,
-            'premium': 6
-          };
-          
-          const activeIndexA = planIndices[valA];
-          const activeIndexB = planIndices[valB];
-          
-          document.querySelectorAll('#infra-table tr').forEach(row => {
-            for (let i = 3; i <= 6; i++) {
-              if (row.children[i]) {
-                const isSelected = (i === activeIndexA || i === activeIndexB);
-                row.children[i].style.display = isSelected ? '' : 'none';
-              }
+          rows.forEach((row, rIdx) => {
+            const data = rowData[rIdx];
+            
+            // Set first compare column (Index 3)
+            const cell3 = row.children[3];
+            if (cell3 && data[valA]) {
+              cell3.innerHTML = data[valA].html;
+              cell3.setAttribute('style', data[valA].style);
+              cell3.style.display = '';
             }
+            
+            // Set second compare column (Index 4)
+            const cell4 = row.children[4];
+            if (cell4 && data[valB]) {
+              cell4.innerHTML = data[valB].html;
+              cell4.setAttribute('style', data[valB].style);
+              cell4.style.display = '';
+            }
+            
+            // Hide columns 5 and 6
+            if (row.children[5]) row.children[5].style.display = 'none';
+            if (row.children[6]) row.children[6].style.display = 'none';
           });
           
           // Enlarge fonts and spacing because we're displaying only 1 or 2 plans!
@@ -4465,9 +4489,11 @@
           updateTableLayout();
         });
         
-        // Expose global reset function
         window.CentariApp.resetCompareView = function() {
           showAll = true;
+          // Synchronize dropdown values for visual correctness
+          selectA.value = 'starter';
+          selectB.value = 'basic';
           updateTableLayout();
         };
 
