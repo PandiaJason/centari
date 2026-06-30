@@ -5007,8 +5007,8 @@ Sent from centari LMS Portal`;
 
         let isHiding = false;
         let isDetached = false;
-        let mouseX = 0;
-        let mouseY = 0;
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
         
         let floatX = 0;
         let floatY = 0;
@@ -5056,6 +5056,9 @@ Sent from centari LMS Portal`;
           isDetached = true;
           const rect = mascot.getBoundingClientRect();
           
+          // Move mascot to document.body so it escapes container perspective & overflow clipping
+          document.body.appendChild(mascot);
+          
           // Set fixed position styles to animate out of container
           mascot.style.position = 'fixed';
           mascot.style.zIndex = '99999';
@@ -5095,6 +5098,9 @@ Sent from centari LMS Portal`;
           mascot.style.transform = 'rotate(0deg) scale(1)';
 
           setTimeout(() => {
+            // Return mascot back to the container
+            container.appendChild(mascot);
+            
             // Restore container styling and reset relative positioning
             mascot.style.position = 'static';
             mascot.style.width = '95%';
