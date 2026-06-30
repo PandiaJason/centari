@@ -3624,7 +3624,324 @@
             </ul>
             <button class="pricing-action-btn" onclick="CentariApp.selectPricingPlan('Premium')">Contact Sales</button>
           </div>
-
+        </div>
+        <!-- DETAILED COST & SERVICES TRANSPARENCY MATRIX -->
+        <div class="pricing-matrix-container" style="margin-top: 3.5rem; background: var(--sand-100); border: 1px solid var(--sand-200); border-radius: 16px; padding: 2rem; box-shadow: 0 4px 16px rgba(var(--terra-shadow), 0.02);">
+          <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--ink-900); margin-bottom: 0.5rem; letter-spacing: -0.015em; font-family: 'Source Sans 3', sans-serif;">LMS Production Infrastructure & Services Comparison</h3>
+          <p style="font-size: 0.85rem; color: var(--ink-500); margin-bottom: 1.5rem; line-height: 1.4;">
+            Detailed feature comparison and deployment architecture details for Centari LMS setups.
+          </p>
+          
+          <div style="overflow-x: auto; -webkit-overflow-scrolling: touch;">
+            <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.825rem; min-width: 750px;">
+              <thead>
+                <tr style="border-bottom: 2px solid var(--sand-200); color: var(--ink-900); font-weight: 700;">
+                  <th style="padding: 0.75rem 0.5rem;">Layer</th>
+                  <th style="padding: 0.75rem 0.5rem;">Tool / Service</th>
+                  <th style="padding: 0.75rem 0.5rem;">Purpose</th>
+                  <th style="padding: 0.75rem 0.5rem; color: var(--terra);">Starter Plan</th>
+                  <th style="padding: 0.75rem 0.5rem; color: var(--terra);">Basic Plan</th>
+                  <th style="padding: 0.75rem 0.5rem; color: var(--terra);">Standard Plan</th>
+                  <th style="padding: 0.75rem 0.5rem; color: var(--terra);">Premium Plan</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid var(--sand-200); color: var(--ink-700);">
+                  <td style="padding: 0.65rem 0.5rem; font-weight: 600; color: var(--ink-900);">Compute Server</td>
+                  <td style="padding: 0.65rem 0.5rem;">Dedicated App Instance</td>
+                  <td style="padding: 0.65rem 0.5rem;">Application Server</td>
+                  <td style="padding: 0.65rem 0.5rem;">8 vCPU / 16 GB RAM</td>
+                  <td style="padding: 0.65rem 0.5rem;">16 vCPU / 32 GB RAM</td>
+                  <td style="padding: 0.65rem 0.5rem;">Hetzner Dedicated (AX/EX)</td>
+                  <td style="padding: 0.65rem 0.5rem;">Bare-Metal Cluster Server</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--sand-200); color: var(--ink-700);">
+                  <td style="padding: 0.65rem 0.5rem; font-weight: 600; color: var(--ink-900);">Operating System</td>
+                  <td style="padding: 0.65rem 0.5rem;">Ubuntu Linux OS</td>
+                  <td style="padding: 0.65rem 0.5rem;">Linux Distribution</td>
+                  <td style="padding: 0.65rem 0.5rem;">Ubuntu 24.04 LTS</td>
+                  <td style="padding: 0.65rem 0.5rem;">Ubuntu 24.04 LTS</td>
+                  <td style="padding: 0.65rem 0.5rem;">Ubuntu 24.04 LTS</td>
+                  <td style="padding: 0.65rem 0.5rem;">Ubuntu 24.04 LTS</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--sand-200); color: var(--ink-700);">
+                  <td style="padding: 0.65rem 0.5rem; font-weight: 600; color: var(--ink-900);">Web Server</td>
+                  <td style="padding: 0.65rem 0.5rem;">Nginx Web Proxy</td>
+                  <td style="padding: 0.65rem 0.5rem;">Reverse Proxy & Routing</td>
+                  <td style="padding: 0.65rem 0.5rem;">Included</td>
+                  <td style="padding: 0.65rem 0.5rem;">Included</td>
+                  <td style="padding: 0.65rem 0.5rem;">Included</td>
+                  <td style="padding: 0.65rem 0.5rem;">Included</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--sand-200); color: var(--ink-700);">
+                  <td style="padding: 0.65rem 0.5rem; font-weight: 600; color: var(--ink-900);">PHP Runtime</td>
+                  <td style="padding: 0.65rem 0.5rem;">PHP 8.4 Engine</td>
+                  <td style="padding: 0.65rem 0.5rem;">Execution Runtime</td>
+                  <td style="padding: 0.65rem 0.5rem;">PHP 8.4 FPM</td>
+                  <td style="padding: 0.65rem 0.5rem;">PHP 8.4 FPM</td>
+                  <td style="padding: 0.65rem 0.5rem;">PHP 8.4 FPM</td>
+                  <td style="padding: 0.65rem 0.5rem;">PHP 8.4 FPM</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--sand-200); color: var(--ink-700);">
+                  <td style="padding: 0.65rem 0.5rem; font-weight: 600; color: var(--ink-900);">Backend MVC</td>
+                  <td style="padding: 0.65rem 0.5rem;">Laravel 12</td>
+                  <td style="padding: 0.65rem 0.5rem;">Backend App Framework</td>
+                  <td style="padding: 0.65rem 0.5rem;">Included</td>
+                  <td style="padding: 0.65rem 0.5rem;">Included</td>
+                  <td style="padding: 0.65rem 0.5rem;">Included</td>
+                  <td style="padding: 0.65rem 0.5rem;">Included</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--sand-200); color: var(--ink-700);">
+                  <td style="padding: 0.65rem 0.5rem; font-weight: 600; color: var(--ink-900);">Admin Portal</td>
+                  <td style="padding: 0.65rem 0.5rem;">Filament 4 Dashboard</td>
+                  <td style="padding: 0.65rem 0.5rem;">System Administration</td>
+                  <td style="padding: 0.65rem 0.5rem;">Included</td>
+                  <td style="padding: 0.65rem 0.5rem;">Included</td>
+                  <td style="padding: 0.65rem 0.5rem;">Included</td>
+                  <td style="padding: 0.65rem 0.5rem;">Included</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--sand-200); color: var(--ink-700);">
+                  <td style="padding: 0.65rem 0.5rem; font-weight: 600; color: var(--ink-900);">Primary Database</td>
+                  <td style="padding: 0.65rem 0.5rem;">PostgreSQL 16</td>
+                  <td style="padding: 0.65rem 0.5rem;">Primary Database Store</td>
+                  <td style="padding: 0.65rem 0.5rem;">Included</td>
+                  <td style="padding: 0.65rem 0.5rem;">Included</td>
+                  <td style="padding: 0.65rem 0.5rem;">Included</td>
+                  <td style="padding: 0.65rem 0.5rem;">Included</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--sand-200); color: var(--ink-700);">
+                  <td style="padding: 0.65rem 0.5rem; font-weight: 600; color: var(--ink-900);">Cache & Sessions</td>
+                  <td style="padding: 0.65rem 0.5rem;">Redis 7</td>
+                  <td style="padding: 0.65rem 0.5rem;">Cache store & session state</td>
+                  <td style="padding: 0.65rem 0.5rem;">Included</td>
+                  <td style="padding: 0.65rem 0.5rem;">Included</td>
+                  <td style="padding: 0.65rem 0.5rem;">Included</td>
+                  <td style="padding: 0.65rem 0.5rem;">Included</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--sand-200); color: var(--ink-700);">
+                  <td style="padding: 0.65rem 0.5rem; font-weight: 600; color: var(--ink-900);">Job Queue</td>
+                  <td style="padding: 0.65rem 0.5rem;">Horizon & Supervisor</td>
+                  <td style="padding: 0.65rem 0.5rem;">Async Worker processes</td>
+                  <td style="padding: 0.65rem 0.5rem;">Included</td>
+                  <td style="padding: 0.65rem 0.5rem;">Included</td>
+                  <td style="padding: 0.65rem 0.5rem;">Included</td>
+                  <td style="padding: 0.65rem 0.5rem;">Included</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--sand-200); color: var(--ink-700);">
+                  <td style="padding: 0.65rem 0.5rem; font-weight: 600; color: var(--ink-900);">Virtualization</td>
+                  <td style="padding: 0.65rem 0.5rem;">Docker Containers</td>
+                  <td style="padding: 0.65rem 0.5rem;">Application container orchestration</td>
+                  <td style="padding: 0.65rem 0.5rem;">Included</td>
+                  <td style="padding: 0.65rem 0.5rem;">Included</td>
+                  <td style="padding: 0.65rem 0.5rem;">Included</td>
+                  <td style="padding: 0.65rem 0.5rem;">Included</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--sand-200); color: var(--ink-700);">
+                  <td style="padding: 0.65rem 0.5rem; font-weight: 600; color: var(--ink-900);">DNS & Edge</td>
+                  <td style="padding: 0.65rem 0.5rem;">Cloudflare integration</td>
+                  <td style="padding: 0.65rem 0.5rem;">DDoS security, DNS & SSL certificates</td>
+                  <td style="padding: 0.65rem 0.5rem;">Included</td>
+                  <td style="padding: 0.65rem 0.5rem;">Included</td>
+                  <td style="padding: 0.65rem 0.5rem;">Included</td>
+                  <td style="padding: 0.65rem 0.5rem;">Included</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--sand-200); color: var(--ink-700);">
+                  <td style="padding: 0.65rem 0.5rem; font-weight: 600; color: var(--ink-900);">Domain Routing</td>
+                  <td style="padding: 0.65rem 0.5rem;">Institutional Custom Domain</td>
+                  <td style="padding: 0.65rem 0.5rem;">Custom URL mappings</td>
+                  <td style="padding: 0.65rem 0.5rem;">Included</td>
+                  <td style="padding: 0.65rem 0.5rem;">Included</td>
+                  <td style="padding: 0.65rem 0.5rem;">Included</td>
+                  <td style="padding: 0.65rem 0.5rem;">Included</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--sand-200); color: var(--ink-700);">
+                  <td style="padding: 0.65rem 0.5rem; font-weight: 600; color: var(--ink-900);">System Mailer</td>
+                  <td style="padding: 0.65rem 0.5rem;">Brevo Transactional SMTP</td>
+                  <td style="padding: 0.65rem 0.5rem;">LMS System OTPs & notifications</td>
+                  <td style="padding: 0.65rem 0.5rem;">Standard Setup</td>
+                  <td style="padding: 0.65rem 0.5rem;">Standard Setup</td>
+                  <td style="padding: 0.65rem 0.5rem;">High-Volume SMTP</td>
+                  <td style="padding: 0.65rem 0.5rem;">High-Volume SMTP</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--sand-200); color: var(--ink-700);">
+                  <td style="padding: 0.65rem 0.5rem; font-weight: 600; color: var(--ink-900);">Status Monitoring</td>
+                  <td style="padding: 0.65rem 0.5rem;">UptimeRobot alerts</td>
+                  <td style="padding: 0.65rem 0.5rem;">System availability tracking</td>
+                  <td style="padding: 0.65rem 0.5rem;">Included</td>
+                  <td style="padding: 0.65rem 0.5rem;">Included</td>
+                  <td style="padding: 0.65rem 0.5rem;">Included</td>
+                  <td style="padding: 0.65rem 0.5rem;">Included</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--sand-200); color: var(--ink-700);">
+                  <td style="padding: 0.65rem 0.5rem; font-weight: 600; color: var(--ink-900);">System Metrics</td>
+                  <td style="padding: 0.65rem 0.5rem;">Grafana Cloud Integration</td>
+                  <td style="padding: 0.65rem 0.5rem;">CPU, Memory & Network Dashboards</td>
+                  <td style="padding: 0.65rem 0.5rem; color: var(--ink-400);">—</td>
+                  <td style="padding: 0.65rem 0.5rem; color: var(--ink-400);">—</td>
+                  <td style="padding: 0.65rem 0.5rem;">Included</td>
+                  <td style="padding: 0.65rem 0.5rem;">Included</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--sand-200); color: var(--ink-700);">
+                  <td style="padding: 0.65rem 0.5rem; font-weight: 600; color: var(--ink-900);">Log Registry</td>
+                  <td style="padding: 0.65rem 0.5rem;">Grafana Loki</td>
+                  <td style="padding: 0.65rem 0.5rem;">Central system logs collection</td>
+                  <td style="padding: 0.65rem 0.5rem; color: var(--ink-400);">—</td>
+                  <td style="padding: 0.65rem 0.5rem; color: var(--ink-400);">—</td>
+                  <td style="padding: 0.65rem 0.5rem; color: var(--ink-400);">—</td>
+                  <td style="padding: 0.65rem 0.5rem;">Included</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--sand-200); color: var(--ink-700);">
+                  <td style="padding: 0.65rem 0.5rem; font-weight: 600; color: var(--ink-900);">Backups Store</td>
+                  <td style="padding: 0.65rem 0.5rem;">Backblaze B2 Storage</td>
+                  <td style="padding: 0.65rem 0.5rem;">Automated Daily Offsite backups</td>
+                  <td style="padding: 0.65rem 0.5rem;">Included</td>
+                  <td style="padding: 0.65rem 0.5rem;">Included</td>
+                  <td style="padding: 0.65rem 0.5rem;">Included</td>
+                  <td style="padding: 0.65rem 0.5rem;">Included</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--sand-200); color: var(--ink-700);">
+                  <td style="padding: 0.65rem 0.5rem; font-weight: 600; color: var(--ink-900);">Static CDN Storage</td>
+                  <td style="padding: 0.65rem 0.5rem;">Bunny Storage & CDN</td>
+                  <td style="padding: 0.65rem 0.5rem;">Asset delivery static caching</td>
+                  <td style="padding: 0.65rem 0.5rem; color: var(--ink-400);">—</td>
+                  <td style="padding: 0.65rem 0.5rem;">Standard Setup</td>
+                  <td style="padding: 0.65rem 0.5rem;">Enterprise Setup</td>
+                  <td style="padding: 0.65rem 0.5rem;">Enterprise Cluster</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--sand-200); color: var(--ink-700);">
+                  <td style="padding: 0.65rem 0.5rem; font-weight: 600; color: var(--ink-900);">Video Streams</td>
+                  <td style="padding: 0.65rem 0.5rem;">YouTube integration</td>
+                  <td style="padding: 0.65rem 0.5rem;">Unlisted lecture playlist player</td>
+                  <td style="padding: 0.65rem 0.5rem;">Included</td>
+                  <td style="padding: 0.65rem 0.5rem; color: var(--ink-400);">—</td>
+                  <td style="padding: 0.65rem 0.5rem; color: var(--ink-400);">—</td>
+                  <td style="padding: 0.65rem 0.5rem; color: var(--ink-400);">—</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--sand-200); color: var(--ink-700);">
+                  <td style="padding: 0.65rem 0.5rem; font-weight: 600; color: var(--ink-900);">DRM Video</td>
+                  <td style="padding: 0.65rem 0.5rem;">Bunny Stream API</td>
+                  <td style="padding: 0.65rem 0.5rem;">Encrypted anti-piracy video streaming</td>
+                  <td style="padding: 0.65rem 0.5rem; color: var(--ink-400);">—</td>
+                  <td style="padding: 0.65rem 0.5rem;">Included</td>
+                  <td style="padding: 0.65rem 0.5rem;">Included</td>
+                  <td style="padding: 0.65rem 0.5rem;">Included (Enterprise)</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--sand-200); color: var(--ink-700);">
+                  <td style="padding: 0.65rem 0.5rem; font-weight: 600; color: var(--ink-900);">Live Integration</td>
+                  <td style="padding: 0.65rem 0.5rem;">Google Meet API sync</td>
+                  <td style="padding: 0.65rem 0.5rem;">Live vector whiteboard blackboard sync</td>
+                  <td style="padding: 0.65rem 0.5rem;">Included</td>
+                  <td style="padding: 0.65rem 0.5rem;">Included</td>
+                  <td style="padding: 0.65rem 0.5rem;">Included</td>
+                  <td style="padding: 0.65rem 0.5rem;">Included</td>
+                </tr>
+                <tr style="border-bottom: 2px solid var(--sand-300); color: var(--ink-700);">
+                  <td style="padding: 0.65rem 0.5rem; font-weight: 600; color: var(--ink-900);">Server Maintenance</td>
+                  <td style="padding: 0.65rem 0.5rem;">DevOps server engineering</td>
+                  <td style="padding: 0.65rem 0.5rem;">12-Months managed updates & SLA Support</td>
+                  <td style="padding: 0.65rem 0.5rem;">1 Year AMC</td>
+                  <td style="padding: 0.65rem 0.5rem;">1 Year Priority AMC</td>
+                  <td style="padding: 0.65rem 0.5rem;">1 Year Dedicated AMC</td>
+                  <td style="padding: 0.65rem 0.5rem;">24/7 Priority SLA AMC</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- INFRASTRUCTURE COST BREAKDOWNS -->
+        <div class="pricing-cost-breakdown-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+          
+          <!-- One-Time Setup Costs -->
+          <div style="background: var(--sand-100); border: 1px solid var(--sand-200); border-radius: 16px; padding: 1.5rem; box-shadow: 0 4px 16px rgba(var(--terra-shadow), 0.015);">
+            <h4 style="font-size: 1.05rem; font-weight: 800; color: var(--ink-900); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; font-family: 'Source Sans 3', sans-serif;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--terra);"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+              One-Time LMS Custom Setup & DevOps
+            </h4>
+            <p style="font-size: 0.8rem; color: var(--ink-500); margin-bottom: 0.85rem; line-height: 1.4;">
+              Every deployment is custom-engineered for your institution. The one-time setup fee covers the entire execution scope:
+            </p>
+            <ul style="list-style: none; padding: 0; font-size: 0.8rem; color: var(--ink-700); display: flex; flex-direction: column; gap: 0.45rem;">
+              <li style="display: flex; align-items: flex-start; gap: 0.4rem;">
+                <span style="color: #10b981;">✔</span>
+                <span>Requirement Analysis & Database architecture design mapping</span>
+              </li>
+              <li style="display: flex; align-items: flex-start; gap: 0.4rem;">
+                <span style="color: #10b981;">✔</span>
+                <span>UI/UX Custom Branding & Institutional LMS Layout colors</span>
+              </li>
+              <li style="display: flex; align-items: flex-start; gap: 0.4rem;">
+                <span style="color: #10b981;">✔</span>
+                <span>Core LMS Modules: MCQ exam suite, vector whiteboard, leaderboard</span>
+              </li>
+              <li style="display: flex; align-items: flex-start; gap: 0.4rem;">
+                <span style="color: #10b981;">✔</span>
+                <span>Docker-based deployment scripting & provisioning setup</span>
+              </li>
+              <li style="display: flex; align-items: flex-start; gap: 0.4rem;">
+                <span style="color: #10b981;">✔</span>
+                <span>Third-party integrations (YouTube/Google Meet API/Bunny Stream API)</span>
+              </li>
+              <li style="display: flex; align-items: flex-start; gap: 0.4rem;">
+                <span style="color: #10b981;">✔</span>
+                <span>Security Hardening, Penetration tests & QA system verify</span>
+              </li>
+              <li style="display: flex; align-items: flex-start; gap: 0.4rem;">
+                <span style="color: #10b981;">✔</span>
+                <span>Production system go-live domain setup & SSL check</span>
+              </li>
+              <li style="display: flex; align-items: flex-start; gap: 0.4rem;">
+                <span style="color: #10b981;">✔</span>
+                <span>Administrator Documentation & Institutional Staff Training handover</span>
+              </li>
+              <li style="border-top: 1px solid var(--sand-200); padding-top: 0.5rem; font-weight: 700; color: var(--ink-900); font-family: 'Source Sans 3', sans-serif;">
+                <span>Setup & Development Costs: Included in the Setup Pricing</span>
+              </li>
+            </ul>
+          </div>
+          
+          <!-- Yearly Managed AMC -->
+          <div style="background: var(--sand-100); border: 1px solid var(--sand-200); border-radius: 16px; padding: 1.5rem; box-shadow: 0 4px 16px rgba(var(--terra-shadow), 0.015);">
+            <h4 style="font-size: 1.05rem; font-weight: 800; color: var(--ink-900); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; font-family: 'Source Sans 3', sans-serif;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--terra);"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+              Managed Maintenance AMC (12 Months Included)
+            </h4>
+            <p style="font-size: 0.8rem; color: var(--ink-500); margin-bottom: 0.85rem; line-height: 1.4;">
+              All plans include 1 full year of server hosting, database maintenance, and priority engineer support:
+            </p>
+            <ul style="list-style: none; padding: 0; font-size: 0.8rem; color: var(--ink-700); display: flex; flex-direction: column; gap: 0.45rem;">
+              <li style="display: flex; align-items: flex-start; gap: 0.4rem;">
+                <span style="color: #10b981;">✔</span>
+                <span>Production system Bug Fixes, Laravel patches & code support</span>
+              </li>
+              <li style="display: flex; align-items: flex-start; gap: 0.4rem;">
+                <span style="color: #10b981;">✔</span>
+                <span>Weekly OS Security updates & Firewall rules review checks</span>
+              </li>
+              <li style="display: flex; align-items: flex-start; gap: 0.4rem;">
+                <span style="color: #10b981;">✔</span>
+                <span>Laravel Framework & Filament admin dashboard packages upgrades</span>
+              </li>
+              <li style="display: flex; align-items: flex-start; gap: 0.4rem;">
+                <span style="color: #10b981;">✔</span>
+                <span>PostgreSQL database performance checks & indices maintenance</span>
+              </li>
+              <li style="display: flex; align-items: flex-start; gap: 0.4rem;">
+                <span style="color: #10b981;">✔</span>
+                <span>Active Server Health dashboard Uptime monitoring alerts</span>
+              </li>
+              <li style="display: flex; align-items: flex-start; gap: 0.4rem;">
+                <span style="color: #10b981;">✔</span>
+                <span>Automated offsite backup integrity verify checks (Backblaze B2)</span>
+              </li>
+              <li style="display: flex; align-items: flex-start; gap: 0.4rem;">
+                <span style="color: #10b981;">✔</span>
+                <span>Priority email/chat technical support access desk</span>
+              </li>
+              <li style="border-top: 1px solid var(--sand-200); padding-top: 0.5rem; font-weight: 700; color: var(--ink-900); font-family: 'Source Sans 3', sans-serif;">
+                <span>1 Year managed hosting, backups & AMC support: Included</span>
+              </li>
+            </ul>
+          </div>
         </div>
 
       </section>
