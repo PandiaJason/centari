@@ -5704,7 +5704,7 @@ Sent from centari LMS Portal`;
         if (!placeholder) {
           placeholder = document.createElement('span');
           placeholder.className = 'mascot-placeholder-text';
-          placeholder.style.cssText = "font-size:0.65rem;color:var(--ink-400);text-align:center;font-weight:600;pointer-events:none;position:absolute;left:15px;top:50%;transform:translateY(-50%);display:none;font-family:'Source Sans 3',sans-serif;";
+          placeholder.style.cssText = "font-size:0.65rem;color:var(--ink-400);text-align:center;font-weight:600;pointer-events:none;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:none;font-family:'Source Sans 3',sans-serif;";
           placeholder.textContent = 'Chasing...';
           container.appendChild(placeholder);
         }
@@ -5730,8 +5730,8 @@ Sent from centari LMS Portal`;
           const dy = e.clientY - containerCenterY;
           const distance = Math.sqrt(dx * dx + dy * dy);
 
-          if (distance < 90) {
-            // GO NEAR: Hide & watch in half eye
+          if (distance < 110) {
+            // GO NEAR: Hide opposite to cursor side & watch in single eye
             if (!isHiding) {
               isHiding = true;
               container.style.borderStyle = 'dashed';
@@ -5739,12 +5739,16 @@ Sent from centari LMS Portal`;
               placeholder.style.display = 'block';
             }
 
-            // Calculate angle to tilt towards cursor while peeking from right edge
-            // Translate the mascot to the right edge (hiding half of it)
-            // Shift x by 45px to slide half-way off the right boundary
-            const tiltX = -Math.min(Math.max(dy / 90, -1), 1) * 15;
-            const tiltY = Math.min(Math.max(dx / 90, -1), 1) * 15;
-            mascot.style.transform = `translate(45px, 0) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale(0.95)`;
+            // Calculate translation vector opposite to the cursor direction
+            const angle = Math.atan2(dy, dx);
+            const translateX = -Math.cos(angle) * 45;
+            const translateY = -Math.sin(angle) * 45;
+
+            // Tilt slightly towards cursor
+            const tiltX = -Math.min(Math.max(dy / 110, -1), 1) * 15;
+            const tiltY = Math.min(Math.max(dx / 110, -1), 1) * 15;
+            
+            mascot.style.transform = `translate(${translateX}px, ${translateY}px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale(0.95)`;
           } else {
             // MOVE AWAY: Come back and follow cursor
             if (isHiding) {
