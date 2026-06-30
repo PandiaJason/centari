@@ -2682,7 +2682,29 @@
         justify-content: center !important;
       }
     }
-  </style>
+    .ent-feat-card {
+      background: rgba(30, 41, 59, 0.02);
+      border: 1px solid var(--sand-200);
+      border-radius: 12px;
+      padding: 1.25rem;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+    .ent-feat-card:hover {
+      background: #ffffff !important;
+      border-color: var(--terra) !important;
+      box-shadow: 0 10px 25px -5px rgba(var(--terra-shadow), 0.08);
+      transform: translateY(-2px);
+    }
+    body.dark-mode .ent-feat-card {
+      background: rgba(255, 255, 255, 0.01);
+      border-color: rgba(255, 255, 255, 0.08);
+    }
+    body.dark-mode .ent-feat-card:hover {
+      background: rgba(255, 255, 255, 0.03) !important;
+    }\n    </style>
 
 </head>
 <body>
@@ -3043,7 +3065,159 @@
           </div>
         </div>
 
-      </section>
+              <!-- Enterprise Capabilities Section -->
+        <div class="section-title-dashboard" style="margin-top: 2rem; margin-bottom: 1rem;">
+          <span class="section-title-text purple">Enterprise Capabilities</span>
+        </div>
+        
+        <div class="dashboard-white-card" style="display: block; padding: 2.25rem; text-align: left; margin-bottom: 2rem; min-height: auto;">
+          <div style="max-width: 750px; margin-bottom: 2rem;">
+            <span class="badge-candidate-portal" style="background: rgba(124, 58, 237, 0.08); color: #7c3aed; font-weight: 700; margin-bottom: 0.5rem; display: inline-block; padding: 0.25rem 0.6rem; border-radius: 20px;">LMS FOR LARGE SCALE UNIVERSITIES</span>
+            <h3 style="font-size: 1.6rem; font-weight: 800; color: var(--ink-900); margin-bottom: 0.5rem; line-height: 1.25;">Designed for Institutional Governance</h3>
+            <p style="font-size: 0.88rem; color: var(--ink-500); line-height: 1.5; margin: 0;">
+              Aligning with premium architectural specifications, <span class="logo-serif" style="color: inherit;">centari</span> LMS provides the integration, scalability, and security layers required by Tier-1 colleges, multi-university systems, and global educational networks.
+            </p>
+          </div>
+          
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem;">
+            <!-- Card 1 -->
+            <div class="ent-feat-card">
+              <div style="display: flex; align-items: center; gap: 0.6rem; color: #7c3aed;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg>
+                <strong style="font-size: 0.9rem; color: var(--ink-900); font-weight: 700;">Multi-Campus Architecture</strong>
+              </div>
+              <p style="font-size: 0.8rem; color: var(--ink-500); line-height: 1.45; margin: 0;">Deploy centralized server instances serving physically distinct campuses with localized latency and cluster optimizations.</p>
+            </div>
+            <!-- Card 2 -->
+            <div class="ent-feat-card">
+              <div style="display: flex; align-items: center; gap: 0.6rem; color: #7c3aed;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/></svg>
+                <strong style="font-size: 0.9rem; color: var(--ink-900); font-weight: 700;">Multi-Institution Deployment</strong>
+              </div>
+              <p style="font-size: 0.8rem; color: var(--ink-500); line-height: 1.45; margin: 0;">Manage multiple distinct educational brands or sister institutions under a single consolidated cluster deployment.</p>
+            </div>
+            <!-- Card 3 -->
+            <div class="ent-feat-card">
+              <div style="display: flex; align-items: center; gap: 0.6rem; color: #7c3aed;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                <strong style="font-size: 0.9rem; color: var(--ink-900); font-weight: 700;">Role-Based Permissions</strong>
+              </div>
+              <p style="font-size: 0.8rem; color: var(--ink-500); line-height: 1.45; margin: 0;">Granular permissions matrix supporting customizable roles for students, teachers, coordinators, proctors, and admins.</p>
+            </div>
+            <!-- Card 4 -->
+            <div class="ent-feat-card">
+              <div style="display: flex; align-items: center; gap: 0.6rem; color: #7c3aed;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <strong style="font-size: 0.9rem; color: var(--ink-900); font-weight: 700;">SSO Integration</strong>
+              </div>
+              <p style="font-size: 0.8rem; color: var(--ink-500); line-height: 1.45; margin: 0;">Connect seamlessly to Microsoft Active Directory, Okta, G Suite, or custom SAML 2.0 / OIDC identity providers.</p>
+            </div>
+            <!-- Card 5 -->
+            <div class="ent-feat-card">
+              <div style="display: flex; align-items: center; gap: 0.6rem; color: #7c3aed;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                <strong style="font-size: 0.9rem; color: var(--ink-900); font-weight: 700;">ERP/SIS Integration</strong>
+              </div>
+              <p style="font-size: 0.8rem; color: var(--ink-500); line-height: 1.45; margin: 0;">Bidirectional sync with major Student Information Systems including Banner, Peoplesoft, SAP, and custom database views.</p>
+            </div>
+            <!-- Card 6 -->
+            <div class="ent-feat-card">
+              <div style="display: flex; align-items: center; gap: 0.6rem; color: #7c3aed;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <strong style="font-size: 0.9rem; color: var(--ink-900); font-weight: 700;">Attendance Integration</strong>
+              </div>
+              <p style="font-size: 0.8rem; color: var(--ink-500); line-height: 1.45; margin: 0;">Automated presence tracking synced with classroom whiteboard activity, stream connection timestamps, and biometrics.</p>
+            </div>
+            <!-- Card 7 -->
+            <div class="ent-feat-card">
+              <div style="display: flex; align-items: center; gap: 0.6rem; color: #7c3aed;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                <strong style="font-size: 0.9rem; color: var(--ink-900); font-weight: 700;">API-First Architecture</strong>
+              </div>
+              <p style="font-size: 0.8rem; color: var(--ink-500); line-height: 1.45; margin: 0;">Exposes every core LMS function via documented, rate-limited REST APIs to build custom integrations or web portals.</p>
+            </div>
+            <!-- Card 8 -->
+            <div class="ent-feat-card">
+              <div style="display: flex; align-items: center; gap: 0.6rem; color: #7c3aed;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                <strong style="font-size: 0.9rem; color: var(--ink-900); font-weight: 700;">Audit Logs</strong>
+              </div>
+              <p style="font-size: 0.8rem; color: var(--ink-500); line-height: 1.45; margin: 0;">Immutable log history tracking database writes, permission alterations, and critical student activities for strict compliance.</p>
+            </div>
+            <!-- Card 9 -->
+            <div class="ent-feat-card">
+              <div style="display: flex; align-items: center; gap: 0.6rem; color: #7c3aed;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                <strong style="font-size: 0.9rem; color: var(--ink-900); font-weight: 700;">Learning Analytics</strong>
+              </div>
+              <p style="font-size: 0.8rem; color: var(--ink-500); line-height: 1.45; margin: 0;">Real-time analytics dashboards tracing student performance, interaction density, and video retention curves.</p>
+            </div>
+            <!-- Card 10 -->
+            <div class="ent-feat-card">
+              <div style="display: flex; align-items: center; gap: 0.6rem; color: #7c3aed;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+                <strong style="font-size: 0.9rem; color: var(--ink-900); font-weight: 700;">AI Question Generation</strong>
+              </div>
+              <p style="font-size: 0.8rem; color: var(--ink-500); line-height: 1.45; margin: 0;">Automated drafting of high-fidelity MCQs and quizzes directly from syllabus PDFs and lecture transcripts.</p>
+            </div>
+            <!-- Card 11 -->
+            <div class="ent-feat-card">
+              <div style="display: flex; align-items: center; gap: 0.6rem; color: #7c3aed;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+                <strong style="font-size: 0.9rem; color: var(--ink-900); font-weight: 700;">AI Evaluation</strong>
+              </div>
+              <p style="font-size: 0.8rem; color: var(--ink-500); line-height: 1.45; margin: 0;">Semi-automated grading of subjective essay examinations with comprehensive criteria feedback matching rubrics.</p>
+            </div>
+            <!-- Card 12 -->
+            <div class="ent-feat-card">
+              <div style="display: flex; align-items: center; gap: 0.6rem; color: #7c3aed;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                <strong style="font-size: 0.9rem; color: var(--ink-900); font-weight: 700;">AI Tutoring</strong>
+              </div>
+              <p style="font-size: 0.8rem; color: var(--ink-500); line-height: 1.45; margin: 0;">Contextual virtual learning assistant referencing only verified institutional course notes and academic materials.</p>
+            </div>
+            <!-- Card 13 -->
+            <div class="ent-feat-card">
+              <div style="display: flex; align-items: center; gap: 0.6rem; color: #7c3aed;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                <strong style="font-size: 0.9rem; color: var(--ink-900); font-weight: 700;">Multi-Language Support</strong>
+              </div>
+              <p style="font-size: 0.8rem; color: var(--ink-500); line-height: 1.45; margin: 0;">Full localized internationalization (i18n) translation layers across all student, proctor, and administrative views.</p>
+            </div>
+            <!-- Card 14 -->
+            <div class="ent-feat-card">
+              <div style="display: flex; align-items: center; gap: 0.6rem; color: #7c3aed;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+                <strong style="font-size: 0.9rem; color: var(--ink-900); font-weight: 700;">Mobile PWA</strong>
+              </div>
+              <p style="font-size: 0.8rem; color: var(--ink-500); line-height: 1.45; margin: 0;">Installable progressive web application footprint with local database cache resilience for offline exam integrity.</p>
+            </div>
+            <!-- Card 15 -->
+            <div class="ent-feat-card">
+              <div style="display: flex; align-items: center; gap: 0.6rem; color: #7c3aed;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                <strong style="font-size: 0.9rem; color: var(--ink-900); font-weight: 700;">Notification Engine</strong>
+              </div>
+              <p style="font-size: 0.8rem; color: var(--ink-500); line-height: 1.45; margin: 0;">Automated alerts via WhatsApp, SMS, Email, and Push Notifications for exam updates, grades, and schedules.</p>
+            </div>
+            <!-- Card 16 -->
+            <div class="ent-feat-card">
+              <div style="display: flex; align-items: center; gap: 0.6rem; color: #7c3aed;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                <strong style="font-size: 0.9rem; color: var(--ink-900); font-weight: 700;">Certificate Automation</strong>
+              </div>
+              <p style="font-size: 0.8rem; color: var(--ink-500); line-height: 1.45; margin: 0;">Secure digital certificate generation with cryptographic verification QR codes and registrar signatures.</p>
+            </div>
+            <!-- Card 17 -->
+            <div class="ent-feat-card">
+              <div style="display: flex; align-items: center; gap: 0.6rem; color: #7c3aed;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <strong style="font-size: 0.9rem; color: var(--ink-900); font-weight: 700;">Accreditation Reporting</strong>
+              </div>
+              <p style="font-size: 0.8rem; color: var(--ink-500); line-height: 1.45; margin: 0;">Ready-to-export reporting conforming to national accreditation standards (NAAC, ABET) and compliance audits.</p>
+            </div>
+          </div>
+        </div>\n      </section>
       
       <!-- ================================================================
            VIEWPORT 2: MCQ EXAM SUITE SIMULATOR
