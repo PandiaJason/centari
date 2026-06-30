@@ -3705,6 +3705,11 @@
             initPlanCompare();
           }
 
+          // On page load, if contact configurator elements are present, initialize them
+          if (document.getElementById('contact-palette-grid-container')) {
+            initContactExam();
+          }
+
           // Handle hash routing on load
           const hash = window.location.hash.substring(1);
           if (hash && ['dashboard', 'exams', 'drm', 'live', 'leaderboard'].includes(hash)) {
