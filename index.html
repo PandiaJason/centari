@@ -5701,7 +5701,10 @@ Sent from centari LMS Portal`;
         container.style.overflow = 'hidden';
 
         let isHiding = false;
-        let lastScrollY = window.scrollY;
+        let mouseX = 0;
+        let mouseY = 0;
+        let scrollTimeout;
+        let isScrolling = false;
 
         function getMascotCenter() {
           const rect = mascot.getBoundingClientRect();
@@ -5713,12 +5716,29 @@ Sent from centari LMS Portal`;
 
         // Track mouse movement
         document.addEventListener('mousemove', (e) => {
+          mouseX = e.clientX;
+          mouseY = e.clientY;
+          updateMascot();
+        });
+
+        // Track scrolling
+        window.addEventListener('scroll', () => {
+          isScrolling = true;
+          clearTimeout(scrollTimeout);
+          scrollTimeout = setTimeout(() => {
+            isScrolling = false;
+            updateMascot();
+          }, 250);
+          updateMascot();
+        });
+
+        function updateMascot() {
           const rect = container.getBoundingClientRect();
           const containerCenterX = rect.left + rect.width / 2;
           const containerCenterY = rect.top + rect.height / 2;
 
-          const dx = e.clientX - containerCenterX;
-          const dy = e.clientY - containerCenterY;
+          const dx = mouseX - containerCenterX;
+          const dy = mouseY - containerCenterY;
           const distance = Math.sqrt(dx * dx + dy * dy);
 
           if (distance < 110) {
@@ -5729,10 +5749,11 @@ Sent from centari LMS Portal`;
               container.style.borderColor = 'rgba(0,0,0,0.15)';
             }
 
-            // Calculate translation vector opposite to the cursor direction
-            const angle = Math.atan2(dy, dx);
-            const translateX = -Math.cos(angle) * 45;
-            const translateY = -Math.sin(angle) * 45;
+            // Use horizontal space (left & right empty spaces) to hide opposite of cursor.
+            // If scrolling is detected, "come out" of the hiding spot (offset decreases from 45px to 10px).
+            const hideOffset = isScrolling ? 10 : 45;
+            const translateX = dx > 0 ? -hideOffset : hideOffset;
+            const translateY = 0;
 
             // Tilt slightly towards cursor
             const tiltX = -Math.min(Math.max(dy / 110, -1), 1) * 15;
@@ -5751,29 +5772,13 @@ Sent from centari LMS Portal`;
             const rotateX = -Math.min(Math.max(dy / 500, -1), 1) * 20;
             const rotateY = Math.min(Math.max(dx / 500, -1), 1) * 20;
             
-            // Adjust based on scroll offset to show it "sees where we are scrolling"
-            const scrollDiff = (window.scrollY - lastScrollY) * 0.1;
-            const yOffset = Math.min(Math.max(scrollDiff, -15), 15);
-
-            mascot.style.transform = `translate(0, ${yOffset}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1)`;
-          }
-        });
-
-        // Track scrolling to adjust position dynamically
-        window.addEventListener('scroll', () => {
-          if (!isHiding) {
-            const rect = container.getBoundingClientRect();
-            const containerCenterX = rect.left + rect.width / 2;
-            const containerCenterY = rect.top + rect.height / 2;
-            
-            // Bob up/down based on scroll velocity/offset to see where we scroll
+            // Bob up/down based on scroll offset to show it "sees where we are scrolling"
             const scrollOffset = (window.scrollY % 100) - 50;
             const bobY = (scrollOffset / 50) * 8; // gentle bobbing
-            
-            // Apply gentle bobbing translation
-            mascot.style.transform = mascot.style.transform.replace(/translate\([^)]*\)/, `translate(0, ${bobY}px)`);
+
+            mascot.style.transform = `translate(0, ${bobY}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1)`;
           }
-        });
+        }
       }
 
       // Contact Fullscreen management
