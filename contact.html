@@ -5700,13 +5700,21 @@ Sent from centari LMS Portal`;
         container.style.overflow = 'hidden';
 
         let isHiding = false;
+        let isDetached = false;
         let mouseX = 0;
         let mouseY = 0;
+        
+        let floatX = 0;
+        let floatY = 0;
+        let targetFloatX = 0;
+        let targetFloatY = 0;
+
         let scrollTimeout;
         let isScrolling = false;
+        let detachInterval;
 
-        function getMascotCenter() {
-          const rect = mascot.getBoundingClientRect();
+        function getContainerCenter() {
+          const rect = container.getBoundingClientRect();
           return {
             x: rect.left + rect.width / 2,
             y: rect.top + rect.height / 2
@@ -5731,7 +5739,121 @@ Sent from centari LMS Portal`;
           updateMascot();
         });
 
+        // Randomly check if the mascot should "come out" and watch us
+        detachInterval = setInterval(() => {
+          if (!isDetached && !isHiding && Math.random() < 0.45) {
+            comeOut();
+          }
+        }, 15000);
+
+        function comeOut() {
+          isDetached = true;
+          const rect = mascot.getBoundingClientRect();
+          
+          // Set fixed position styles to animate out of container
+          mascot.style.position = 'fixed';
+          mascot.style.zIndex = '99999';
+          mascot.style.width = '70px';
+          mascot.style.height = '70px';
+          mascot.style.left = `${rect.left}px`;
+          mascot.style.top = `${rect.top}px`;
+          mascot.style.pointerEvents = 'none';
+          mascot.style.transition = 'all 0.8s cubic-bezier(0.19, 1, 0.22, 1)';
+          
+          container.style.borderStyle = 'dashed';
+          container.style.borderColor = 'rgba(0,0,0,0.15)';
+          
+          // Choose initial target on screen far from cursor but near viewport center
+          targetFloatX = window.innerWidth / 2 + (Math.random() - 0.5) * 200;
+          targetFloatY = window.innerHeight / 2 + (Math.random() - 0.5) * 200;
+          
+          floatX = rect.left;
+          floatY = rect.top;
+
+          setTimeout(() => {
+            mascot.style.left = `${targetFloatX}px`;
+            mascot.style.top = `${targetFloatY}px`;
+          }, 50);
+        }
+
+        function goBackToBox() {
+          if (!isDetached) return;
+          
+          const center = getContainerCenter();
+          const targetLeft = center.x - 35;
+          const targetTop = center.y - 35;
+
+          mascot.style.transition = 'all 0.6s cubic-bezier(0.19, 1, 0.22, 1)';
+          mascot.style.left = `${targetLeft}px`;
+          mascot.style.top = `${targetTop}px`;
+          mascot.style.transform = 'rotate(0deg) scale(1)';
+
+          setTimeout(() => {
+            // Restore container styling and reset relative positioning
+            mascot.style.position = 'static';
+            mascot.style.width = '95%';
+            mascot.style.height = '95%';
+            mascot.style.zIndex = '';
+            mascot.style.pointerEvents = 'auto';
+            mascot.style.transition = 'transform 0.15s ease-out';
+            
+            container.style.borderStyle = 'solid';
+            container.style.borderColor = 'rgba(255,255,255,0.9)';
+            
+            isDetached = false;
+            isHiding = false;
+          }, 600);
+        }
+
+        // Float animation loop when detached
+        function animateFloat() {
+          if (isDetached) {
+            const dx = mouseX - targetFloatX;
+            const dy = mouseY - targetFloatY;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            // If user chases it (cursor gets within 90px of floating mascot), run back to box!
+            const mascotRect = mascot.getBoundingClientRect();
+            const mascotCenterX = mascotRect.left + 35;
+            const mascotCenterY = mascotRect.top + 35;
+            const chaseDx = mouseX - mascotCenterX;
+            const chaseDy = mouseY - mascotCenterY;
+            const chaseDistance = Math.sqrt(chaseDx * chaseDx + chaseDy * chaseDy);
+
+            if (chaseDistance < 90) {
+              goBackToBox();
+              return;
+            }
+
+            // Gently drift towards cursor at a friendly 180px distance
+            if (distance > 200) {
+              targetFloatX += dx * 0.05;
+              targetFloatY += dy * 0.05;
+            } else if (distance < 150) {
+              targetFloatX -= dx * 0.05;
+              targetFloatY -= dy * 0.05;
+            }
+
+            // Keep within viewport bounds
+            targetFloatX = Math.min(Math.max(targetFloatX, 50), window.innerWidth - 120);
+            targetFloatY = Math.min(Math.max(targetFloatY, 50), window.innerHeight - 120);
+
+            // Render position update
+            mascot.style.left = `${targetFloatX}px`;
+            mascot.style.top = `${targetFloatY}px`;
+
+            // Look at cursor while floating
+            const angle = Math.atan2(chaseDy, chaseDx) * (180 / Math.PI);
+            mascot.style.transform = `rotate(${angle + 90}deg) scale(1.1)`;
+          }
+          requestAnimationFrame(animateFloat);
+        }
+        
+        requestAnimationFrame(animateFloat);
+
         function updateMascot() {
+          if (isDetached) return;
+
           const rect = container.getBoundingClientRect();
           const containerCenterX = rect.left + rect.width / 2;
           const containerCenterY = rect.top + rect.height / 2;
