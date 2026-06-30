@@ -413,15 +413,15 @@
       line-height: 1.2;
     }
     .dashboard-quote {
-      font-size: 0.9rem;
+      font-size: 0.75rem;
       font-style: italic;
-      color: rgba(255, 255, 255, 0.85);
-      margin-bottom: 0.5rem;
-      transition: opacity 0.2s ease-in-out, text-decoration 0.2s;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 0.2rem;
+      line-height: 1.4;
+      transition: opacity 0.2s ease-in-out;
     }
     .dashboard-quote:hover {
-      color: #ffffff;
-      text-decoration: underline;
+      color: rgba(255, 255, 255, 0.95);
     }
     .dashboard-subtext {
       font-size: 1.05rem;
@@ -2742,7 +2742,11 @@
             <span class="badge-candidate-portal">Interactive Demo Sandbox</span>
             <h1 style="font-size: 2.2rem; font-weight: 800; line-height: 1.25; margin-bottom: 0.4rem;">Enterprise LMS built for EdTech & Institutions</h1>
             <p class="dashboard-subtext" id="dashboard-user-greeting">Hello, Visitor</p>
-            <p class="dashboard-quote" id="dashboard-quote-el" onclick="CentariApp.cycleQuote()" style="cursor: pointer;" title="Click to cycle quote">"Design is not just what it looks like and feels like. Design is how it works." — Steve Jobs</p>
+            <div style="display: flex; flex-direction: column; gap: 0.15rem; margin-top: 0.25rem;">
+              <p class="dashboard-quote">"Design is not just what it looks like. Design is how it works."</p>
+              <p class="dashboard-quote">"Innovation distinguishes between a leader and a follower."</p>
+              <p class="dashboard-quote">"Stay hungry. Stay foolish." — Steve Jobs</p>
+            </div>
           </div>
           <div class="mascot-container">
             <img src="./logo.svg" id="hero-mascot" alt="centari Logo" style="max-width: 95%; max-height: 95%; filter: drop-shadow(0 6px 12px rgba(0,0,0,0.15)); transition: transform 0.15s ease-out;" />
@@ -2807,21 +2811,21 @@
             <div class="section-title-dashboard">
               <span class="section-title-text blue">Why Choose <span class="logo-serif" style="color: inherit; font-size: inherit;">centari</span>?</span>
             </div>
-            <div class="dashboard-white-card" style="background: var(--sand-100); border-left: 4px solid var(--terra); padding: 1.5rem; display: flex; flex-direction: column; gap: 1.25rem; text-align: left; align-items: stretch; min-height: auto;">
+            <div class="dashboard-white-card" style="background: var(--sand-100); border: 1px solid var(--sand-200); border-left: 4px solid var(--terra); padding: 1.5rem; display: flex; flex-direction: column; gap: 1.25rem; text-align: left; align-items: stretch; min-height: auto;">
               <div>
-                <p style="font-size: 1.05rem; font-weight: 600; color: var(--ink-900); margin-bottom: 0.5rem; line-height: 1.4;">
+                <p style="font-size: 1.15rem; font-weight: 600; color: var(--ink-900); margin-bottom: 0.5rem; line-height: 1.45;">
                   Inspired by the Alpha Centauri star system, <span class="logo-serif" style="color: inherit;">centari</span> represents the next frontier of education technology, creating software that moves beyond conventional learning platforms.
                 </p>
-                <p style="font-size: 0.9rem; color: var(--ink-500); line-height: 1.6;">
+                <p style="font-size: 1rem; color: var(--ink-500); line-height: 1.6;">
                   With enterprise-grade customized Learning Suite infrastructure, secure assessment engines, and scalable digital learning solutions, <span class="logo-serif" style="color: inherit;">centari</span> empowers institutions to build the future of education.
                 </p>
-                <p style="font-size: 0.9rem; color: var(--ink-500); line-height: 1.6; margin-top: 0.75rem;">
+                <p style="font-size: 1rem; color: var(--ink-500); line-height: 1.6; margin-top: 0.75rem;">
                   <span class="logo-serif" style="color: inherit;">centari</span> is built with the sole vision to enable everyone to customize their learning management suite in this AI era.
                 </p>
               </div>
 
               <div style="border-top: 1px solid var(--sand-200); padding-top: 1.25rem; display: flex; flex-direction: column; gap: 0.75rem;">
-                <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--ink-900); line-height: 1.4;">
+                <h4 style="font-size: 1.05rem; font-weight: 700; color: var(--ink-900); line-height: 1.4;">
                   A tailored Learning Management System engineered to solve actual classroom pain points:
                 </h4>
                 
@@ -2833,8 +2837,8 @@
                       </svg>
                     </span>
                     <div>
-                      <strong style="font-size: 0.85rem; color: var(--ink-900); display: block; font-weight: 700; margin-bottom: 0.15rem;">1. Full Digital Classroom at Minimal Cost</strong>
-                      <span style="font-size: 0.8rem; color: var(--ink-500); line-height: 1.45;">Most LMS platforms charge per-student monthly fees that compound fast. centari's Starter Plan bundles a complete MCQ Exam Suite, YouTube Unlisted video delivery, and a live whiteboard classroom — all on a dedicated server starting at just ₹8,600/month infrastructure cost with zero per-user charges.</span>
+                      <strong style="font-size: 0.95rem; color: var(--ink-900); display: block; font-weight: 700; margin-bottom: 0.2rem;">1. Full Digital Classroom at Minimal Cost</strong>
+                      <span style="font-size: 0.9rem; color: var(--ink-500); line-height: 1.5;">Most LMS platforms charge per-student monthly fees that compound fast. centari's Starter Plan bundles a complete MCQ Exam Suite, YouTube Unlisted video delivery, and a live whiteboard classroom — all on a dedicated server starting at just ₹8,600/month infrastructure cost with zero per-user charges.</span>
                     </div>
                   </div>
                   <div style="display: flex; gap: 0.75rem; align-items: flex-start;">
@@ -2844,8 +2848,8 @@
                       </svg>
                     </span>
                     <div>
-                      <strong style="font-size: 0.85rem; color: var(--ink-900); display: block; font-weight: 700; margin-bottom: 0.15rem;">2. Lightweight Vector-Drawing Whiteboard</strong>
-                      <span style="font-size: 0.8rem; color: var(--ink-500); line-height: 1.45;">Traditional screensharing eats massive bandwidth and looks blurry. centari syncs live whiteboard strokes using mathematical vector coordinates, enabling zero-latency drawing that looks crystal-clear even on slow mobile connections.</span>
+                      <strong style="font-size: 0.95rem; color: var(--ink-900); display: block; font-weight: 700; margin-bottom: 0.2rem;">2. Lightweight Vector-Drawing Whiteboard</strong>
+                      <span style="font-size: 0.9rem; color: var(--ink-500); line-height: 1.5;">Traditional screensharing eats massive bandwidth and looks blurry. centari syncs live whiteboard strokes using mathematical vector coordinates, enabling zero-latency drawing that looks crystal-clear even on slow mobile connections.</span>
                     </div>
                   </div>
                   <div style="display: flex; gap: 0.75rem; align-items: flex-start;">
@@ -2855,8 +2859,8 @@
                       </svg>
                     </span>
                     <div>
-                      <strong style="font-size: 0.85rem; color: var(--ink-900); display: block; font-weight: 700; margin-bottom: 0.15rem;">3. White-Label Private Cloud Rollout</strong>
-                      <span style="font-size: 0.8rem; color: var(--ink-500); line-height: 1.45;">Instead of locking your data onto a shared vendor SaaS, centari is deployed directly to your private cloud server. You retain complete database authority, custom branding integration, and unlimited scaling without per-user subscription fees.</span>
+                      <strong style="font-size: 0.95rem; color: var(--ink-900); display: block; font-weight: 700; margin-bottom: 0.2rem;">3. White-Label Private Cloud Rollout</strong>
+                      <span style="font-size: 0.9rem; color: var(--ink-500); line-height: 1.5;">Instead of locking your data onto a shared vendor SaaS, centari is deployed directly to your private cloud server. You retain complete database authority, custom branding integration, and unlimited scaling without per-user subscription fees.</span>
                     </div>
                   </div>
                 </div>
@@ -2870,10 +2874,10 @@
               <span class="section-title-text green">Enterprise Tech Stack</span>
             </div>
             <div class="dashboard-white-card" style="display: block; text-align: left; padding: 1.5rem; min-height: auto; margin-bottom: 1.75rem;">
-              <p style="font-size: 0.95rem; font-weight: 600; color: var(--ink-900); margin-bottom: 0.5rem;">
+              <p style="font-size: 1.05rem; font-weight: 600; color: var(--ink-900); margin-bottom: 0.5rem;">
                 Built on a Scalable, High-Concurrency Foundation
               </p>
-              <p style="font-size: 0.85rem; color: var(--ink-500); line-height: 1.5; margin-bottom: 1.25rem;">
+              <p style="font-size: 0.95rem; color: var(--ink-500); line-height: 1.5; margin-bottom: 1.25rem;">
                 Aligning with premium architectural specifications, <span class="logo-serif" style="color: inherit;">centari</span> LMS is engineered using a robust open-source enterprise stack containing php laravel, redis, and postgresql.
               </p>
               
