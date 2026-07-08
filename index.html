@@ -4214,17 +4214,7 @@
         }, 3000);
       }
 
-      function updateDashboardGreeting() {
-        const name = sessionStorage.getItem('centari_lead_name');
-        const greeting = document.getElementById('dashboard-user-greeting');
-        const avatar = document.getElementById('avatar-letter');
-        if (name && greeting) {
-          greeting.textContent = `Hello, ${name.split(' ')[0]}`;
-        }
-        if (name && avatar) {
-          avatar.textContent = name.charAt(0).toUpperCase();
-        }
-      }
+
 
       function showExtraTabInfo(info) {
         showToast(`Feature: ${info} coming soon!`);
