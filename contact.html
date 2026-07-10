@@ -62,176 +62,9 @@
   <!-- FONTS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700;800&family=Source+Sans+3:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    /* Web Showroom CSS */
-    .web-showroom-browser {
-      background: var(--sand-50);
-      border: 1px solid var(--sand-200);
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
-      display: flex;
-      flex-direction: column;
-      font-family: var(--font-body);
-      width: 100%;
-      border-top: 1px solid rgba(0,0,0,0.05);
-    }
-    body.dark-mode .web-showroom-browser {
-      background: #0b0f19;
-      border-color: #1f2937;
-    }
-    
-    .mock-browser-bar {
-      background: var(--sand-100);
-      border-bottom: 1.5px solid var(--sand-200);
-      padding: 0.5rem 1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      justify-content: flex-start;
-      transition: background-color 0.3s, border-color 0.3s;
-    }
-    body.dark-mode .mock-browser-bar {
-      background: #111827;
-      border-color: #1f2937;
-    }
-    .mock-browser-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      display: inline-block;
-    }
-    .mock-browser-dot.red { background: #ff5f56; }
-    .mock-browser-dot.yellow { background: #ffbd2e; }
-    .mock-browser-dot.green { background: #27c93f; }
-    .mock-browser-url {
-      background: var(--sand-50);
-      border: 1px solid var(--sand-200);
-      border-radius: 6px;
-      padding: 0.2rem 1.5rem;
-      font-size: 0.75rem;
-      color: var(--ink-500);
-      flex: 1;
-      max-width: 320px;
-      margin: 0 auto;
-      text-align: center;
-      font-family: var(--font-mono);
-      transition: background-color 0.3s, border-color 0.3s;
-    }
-    body.dark-mode .mock-browser-url {
-      background: #0b0f19;
-      border-color: #1f2937;
-    }
-    
-    .mock-app-layout {
-      display: flex;
-      background: var(--sand-50);
-      min-height: 290px;
-      transition: background-color 0.3s;
-    }
-    body.dark-mode .mock-app-layout {
-      background: #0b0f19;
-    }
-    
-    .mock-app-sidebar {
-      width: 150px;
-      background: var(--sand-100);
-      border-right: 1.5px solid var(--sand-200);
-      padding: 1rem 0.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.35rem;
-      flex-shrink: 0;
-      transition: background-color 0.3s, border-color 0.3s;
-    }
-    body.dark-mode .mock-app-sidebar {
-      background: #111827;
-      border-color: #1f2937;
-    }
-    .mock-sidebar-item {
-      font-size: 0.7rem;
-      font-weight: 700;
-      color: var(--ink-700);
-      padding: 0.35rem 0.5rem;
-      border-radius: 6px;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .mock-sidebar-item.active {
-      background: rgba(37, 99, 235, 0.08);
-      color: var(--terra);
-    }
-    .mock-sidebar-section {
-      font-size: 0.58rem;
-      font-weight: 800;
-      color: var(--ink-500);
-      text-transform: uppercase;
-      margin-top: 0.5rem;
-      margin-bottom: 0.15rem;
-      padding-left: 0.5rem;
-      white-space: nowrap;
-    }
-    .mock-app-content {
-      flex: 1;
-      padding: 1rem;
-      overflow-x: auto;
-      transition: opacity 0.2s ease;
-    }
-    
-    .showroom-tab-btn {
-      background: transparent;
-      border: none;
-      padding: 0.5rem 1.25rem;
-      font-family: var(--font-body);
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: var(--ink-500);
-      cursor: pointer;
-      border-radius: 8px;
-      transition: all 0.2s ease;
-      white-space: nowrap;
-    }
-    .showroom-tab-btn:hover {
-      color: var(--terra);
-      background: rgba(37, 99, 235, 0.05);
-    }
-    .showroom-tab-btn.active {
-      color: #ffffff;
-      background: var(--terra);
-    }
-    
-    .showroom-sub-btn {
-      background: var(--sand-50);
-      border: 1px solid var(--sand-200);
-      padding: 0.4rem 0.85rem;
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--ink-700);
-      cursor: pointer;
-      border-radius: 20px;
-      transition: all 0.15s ease;
-      white-space: nowrap;
-    }
-    body.dark-mode .showroom-sub-btn {
-      background: #111827;
-      border-color: #1f2937;
-    }
-    .showroom-sub-btn:hover {
-      background: var(--sand-100);
-      border-color: var(--terra);
-    }
-    .showroom-sub-btn.active {
-      background: rgba(37, 99, 235, 0.08);
-      border-color: var(--terra);
-      color: var(--terra);
-    }
-
     /* ============================================================
        DESIGN TOKENS (LIGHT THEMED, ACCENT YELLOW)
        ============================================================ */
@@ -268,8 +101,7 @@
       --dark-border: rgba(255,255,255,0.08);
 
       /* Typography */
-      --font-body: 'Plus Jakarta Sans', sans-serif;
-      --font-title: 'Outfit', sans-serif;
+      --font-body: 'Noto Sans', sans-serif;
       --font-mono: 'JetBrains Mono', monospace;
 
       /* Layout */
@@ -363,23 +195,16 @@
 
     /* Horizontal Top Header Bar */
     .app-header-top {
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      background: var(--sand-100);
       border-bottom: 1px solid var(--sand-200);
-      padding: 0.75rem 2.25rem;
+      padding: 0.6rem 2rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
       position: sticky;
       top: 0;
       z-index: 150;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.01), 0 1px 3px rgba(0, 0, 0, 0.01);
-      transition: background-color 0.3s ease, border-color 0.3s ease;
-    }
-    body.dark-mode .app-header-top {
-      background: rgba(17, 24, 39, 0.85);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: 0 2px 10px rgba(var(--terra-shadow), 0.02);
     }
     
     .header-logo-container {
@@ -2873,7 +2698,7 @@
       </div>
       
       <nav class="header-navbar" role="navigation" aria-label="LMS Portal Top Navigation">
-        <a href="index.html" class="side-nav-btn" id="tab-dashboard">Home</a>
+        <a href="index.html" class="side-nav-btn" id="tab-dashboard">Dashboard</a>
         <a href="pricing.html" class="side-nav-btn" id="tab-pricing">Pricing</a>
         <a href="contact.html" class="side-nav-btn active" id="tab-contact" onclick="event.preventDefault(); CentariApp.routeToTab('contact')">Contact</a>
       </nav>
@@ -3043,76 +2868,6 @@
               
             </div>
             
-            <!-- Product Interface Gallery -->
-            <div class="section-title-dashboard" style="margin-top: 2rem;">
-              <span class="section-title-text purple">Interactive Showroom</span>
-            </div>
-            <div class="dashboard-white-card" style="background: var(--sand-100); border: 1px solid var(--sand-200); padding: 2rem; display: flex; flex-direction: column; gap: 1.5rem; text-align: left; align-items: stretch; min-height: auto; margin-bottom: 1.75rem;">
-              
-              <!-- Section Header -->
-              <div style="display: flex; flex-direction: column; gap: 0.25rem; margin-bottom: 0.5rem;">
-                <p style="font-size: 1.15rem; font-weight: 700; color: var(--ink-900);">
-                  Interactive Platform Showroom
-                </p>
-                <p style="font-size: 0.95rem; color: var(--ink-500); line-height: 1.55;">
-                  Click the tabs below to explore candidate, faculty, and administrator scoped interfaces directly from the Thisai app.
-                </p>
-              </div>
-
-              <!-- Main Role Tabs -->
-              <div style="overflow-x: auto; width: 100%; border-bottom: 1.5px solid var(--sand-200); padding-bottom: 0.75rem; margin-bottom: 0.5rem;">
-                <div class="showroom-tabs" style="display: flex; gap: 0.75rem; min-width: max-content;">
-                  <button class="showroom-tab-btn active" onclick="CentariApp.switchShowroomTab('candidate')">Candidate Portal</button>
-                  <button class="showroom-tab-btn" onclick="CentariApp.switchShowroomTab('faculty')">Faculty Portal</button>
-                  <button class="showroom-tab-btn" onclick="CentariApp.switchShowroomTab('admin')">Administrator Console</button>
-                </div>
-              </div>
-
-              <!-- Showroom Content Container -->
-              <div class="showroom-content" style="margin-top: 0.5rem; display: flex; flex-direction: column; gap: 1rem;">
-                
-                <!-- View Controls for multi-image tabs -->
-                <div style="overflow-x: auto; width: 100%;">
-                  <div id="showroom-subtabs" style="display: flex; gap: 0.5rem; min-width: max-content; margin-bottom: 0.5rem;">
-                    <!-- Dynamic sub-tabs injected via JS -->
-                  </div>
-                </div>
-
-                <!-- Interactive Web Showroom Browser Container -->
-                <div class="web-showroom-browser">
-                  <!-- Browser top chrome bar -->
-                  <div class="mock-browser-bar">
-                    <div style="display: flex; gap: 5px; align-items: center;">
-                      <span class="mock-browser-dot red"></span>
-                      <span class="mock-browser-dot yellow"></span>
-                      <span class="mock-browser-dot green"></span>
-                    </div>
-                    <div class="mock-browser-url" id="showroom-url-text">localhost:8000/dashboard</div>
-                  </div>
-
-                  <!-- Inner Web App layout -->
-                  <div class="mock-app-layout">
-                    <!-- Sidebar (Left) -->
-                    <div class="mock-app-sidebar" id="showroom-mock-sidebar">
-                      <!-- Loaded Dynamically -->
-                    </div>
-
-                    <!-- Content Workspace (Right) -->
-                    <div class="mock-app-content" id="showroom-mock-content">
-                      <!-- Loaded Dynamically -->
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Image Caption -->
-                <p id="showroom-display-caption" style="font-size: 0.95rem; color: var(--ink-900); line-height: 1.5; border-left: 3px solid var(--terra); padding-left: 0.75rem; margin-top: 0.5rem;">
-                  <strong>Candidate Workspace Home</strong> — Main student dashboard overview showing enrolled courses, progress metrics, and upcoming test modules.
-                </p>
-
-              </div>
-
-            </div>
-
             <!-- Enterprise Tech Stack Section -->
             <div class="section-title-dashboard">
               <span class="section-title-text green">Enterprise Tech Stack</span>
@@ -4495,7 +4250,6 @@
           initColorTheme();
           setupNavigation();
           setupMobileHamburger();
-          if (document.getElementById('showroom-app-frame')) { switchShowroomTab('candidate'); }
           
           // Only initialize components if their respective DOM elements exist
           if (document.getElementById('leaderboard-standings-table')) {
@@ -6143,139 +5897,7 @@ Sent from centari LMS Portal`;
         showToast(`Sandbox Module: The ${name} section is enabled in customized enterprise deployments.`);
       }
 
-      // Showroom Interactive Database & Logic
-      const showroomData = {
-        candidate: [
-          {
-            url: 'localhost:8000/dashboard',
-            label: 'Dashboard',
-            desc: 'Candidate Dashboard displaying enrolled courses, watch metrics, prep streaks, and mock exam counters.',
-            image: './lms-dashboard-preview.png'
-          },
-          {
-            url: 'localhost:8000/videos/5',
-            label: 'Watch Lecture',
-            desc: 'Curriculum video viewer rendering lectures with integrated sidebar outline controls and DRM watermarking.',
-            image: './lms-youtube-preview.png'
-          },
-          {
-            url: 'localhost:8000/exams/polity-mock-test-1/verify',
-            label: 'Secured Gate',
-            desc: 'Protected exam gate limiting access via administrative security passcode.',
-            image: './lms-passcode-preview.png'
-          }
-        ],
-        faculty: [
-          {
-            url: 'localhost:8000/faculty/current-affairs',
-            label: 'Current Affairs',
-            desc: 'Faculty current affairs editor panel to publish UPSC/IAS daily readings.',
-            image: './lms-faculty-preview.png'
-          }
-        ],
-        admin: [
-          {
-            url: 'localhost:8000/admin/categories',
-            label: 'Categories',
-            desc: 'System-wide configuration portal for managing course topic tags and parent syllabus categories.',
-            image: './lms-admin-preview.png'
-          },
-          {
-            url: 'localhost:8000/admin/videos',
-            label: 'Videos',
-            desc: 'System admin video vault displaying unlisted links, duration bounds, and watch progressions.',
-            image: './lms-admin-videos.png'
-          },
-          {
-            url: 'localhost:8000/admin/question-bank',
-            label: 'Question Bank',
-            desc: 'Central mock question database with filters matching core syllabus topics (Polity, History, Geography).',
-            image: './lms-admin-questions.png'
-          }
-        ]
-      };
-
-      let activeShowroomRole = 'candidate';
-      let activeShowroomSubIndex = 0;
-
-      function switchShowroomTab(role) {
-        activeShowroomRole = role;
-        activeShowroomSubIndex = 0;
-        
-        // Update active class on role buttons
-        const buttons = document.querySelectorAll('.showroom-tab-btn');
-        buttons.forEach(btn => {
-          if (btn.getAttribute('onclick') && btn.getAttribute('onclick').includes(role)) {
-            btn.classList.add('active');
-          } else {
-            btn.classList.remove('active');
-          }
-        });
-        
-        renderShowroomSubtabs();
-        updateShowroomDisplay();
-      }
-
-      function clickShowroomSubtab(role, index) {
-        activeShowroomRole = role;
-        activeShowroomSubIndex = index;
-        
-        // Render sub-tabs highlighters
-        const container = document.getElementById('showroom-subtabs');
-        if (container) {
-          const subBtns = container.querySelectorAll('.showroom-sub-btn');
-          subBtns.forEach((sb, idx) => {
-            if (idx === index) sb.classList.add('active');
-            else sb.classList.remove('active');
-          });
-        }
-        
-        updateShowroomDisplay();
-      }
-
-      function renderShowroomSubtabs() {
-        const container = document.getElementById('showroom-subtabs');
-        if (!container) return;
-        container.innerHTML = '';
-        
-        const items = showroomData[activeShowroomRole];
-        if (items.length <= 1) {
-          container.style.display = 'none';
-          return;
-        }
-        container.style.display = 'flex';
-        
-        items.forEach((item, index) => {
-          const btn = document.createElement('button');
-          btn.className = `showroom-sub-btn ${index === activeShowroomSubIndex ? 'active' : ''}`;
-          btn.textContent = item.label;
-          btn.onclick = () => {
-            clickShowroomSubtab(activeShowroomRole, index);
-          };
-          container.appendChild(btn);
-        });
-      }
-
-      function updateShowroomDisplay() {
-        const urlEl = document.getElementById('showroom-url-text');
-        const frameEl = document.getElementById('showroom-app-frame');
-        const captionEl = document.getElementById('showroom-display-caption');
-        if (!urlEl || !frameEl || !captionEl) return;
-        
-        const item = showroomData[activeShowroomRole][activeShowroomSubIndex];
-        
-        // Smooth transition
-        frameEl.style.opacity = '0.3';
-        setTimeout(() => {
-          urlEl.textContent = item.url;
-          captionEl.innerHTML = `<strong>${item.label}</strong> — ${item.desc}`;
-          frameEl.innerHTML = `<img src="${item.image}" style="width: 100%; height: auto; display: block; filter: brightness(1.01);" alt="${item.label}">`;
-          frameEl.style.opacity = '1';
-        }, 120);
-      }
-
       return {
-        switchShowroomTab: switchShowroomTab,
         init: init,
         routeToTab: routeToTab,
         selectPricingPlan: selectPricingPlan,
