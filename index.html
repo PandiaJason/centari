@@ -62,9 +62,176 @@
   <!-- FONTS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700;800&family=Source+Sans+3:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
+    /* Web Showroom CSS */
+    .web-showroom-browser {
+      background: var(--sand-50);
+      border: 1px solid var(--sand-200);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+      display: flex;
+      flex-direction: column;
+      font-family: var(--font-body);
+      width: 100%;
+      border-top: 1px solid rgba(0,0,0,0.05);
+    }
+    body.dark-mode .web-showroom-browser {
+      background: #0b0f19;
+      border-color: #1f2937;
+    }
+    
+    .mock-browser-bar {
+      background: var(--sand-100);
+      border-bottom: 1.5px solid var(--sand-200);
+      padding: 0.5rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      justify-content: flex-start;
+      transition: background-color 0.3s, border-color 0.3s;
+    }
+    body.dark-mode .mock-browser-bar {
+      background: #111827;
+      border-color: #1f2937;
+    }
+    .mock-browser-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .mock-browser-dot.red { background: #ff5f56; }
+    .mock-browser-dot.yellow { background: #ffbd2e; }
+    .mock-browser-dot.green { background: #27c93f; }
+    .mock-browser-url {
+      background: var(--sand-50);
+      border: 1px solid var(--sand-200);
+      border-radius: 6px;
+      padding: 0.2rem 1.5rem;
+      font-size: 0.75rem;
+      color: var(--ink-500);
+      flex: 1;
+      max-width: 320px;
+      margin: 0 auto;
+      text-align: center;
+      font-family: var(--font-mono);
+      transition: background-color 0.3s, border-color 0.3s;
+    }
+    body.dark-mode .mock-browser-url {
+      background: #0b0f19;
+      border-color: #1f2937;
+    }
+    
+    .mock-app-layout {
+      display: flex;
+      background: var(--sand-50);
+      min-height: 290px;
+      transition: background-color 0.3s;
+    }
+    body.dark-mode .mock-app-layout {
+      background: #0b0f19;
+    }
+    
+    .mock-app-sidebar {
+      width: 150px;
+      background: var(--sand-100);
+      border-right: 1.5px solid var(--sand-200);
+      padding: 1rem 0.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      flex-shrink: 0;
+      transition: background-color 0.3s, border-color 0.3s;
+    }
+    body.dark-mode .mock-app-sidebar {
+      background: #111827;
+      border-color: #1f2937;
+    }
+    .mock-sidebar-item {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--ink-700);
+      padding: 0.35rem 0.5rem;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .mock-sidebar-item.active {
+      background: rgba(37, 99, 235, 0.08);
+      color: var(--terra);
+    }
+    .mock-sidebar-section {
+      font-size: 0.58rem;
+      font-weight: 800;
+      color: var(--ink-500);
+      text-transform: uppercase;
+      margin-top: 0.5rem;
+      margin-bottom: 0.15rem;
+      padding-left: 0.5rem;
+      white-space: nowrap;
+    }
+    .mock-app-content {
+      flex: 1;
+      padding: 1rem;
+      overflow-x: auto;
+      transition: opacity 0.2s ease;
+    }
+    
+    .showroom-tab-btn {
+      background: transparent;
+      border: none;
+      padding: 0.5rem 1.25rem;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--ink-500);
+      cursor: pointer;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .showroom-tab-btn:hover {
+      color: var(--terra);
+      background: rgba(37, 99, 235, 0.05);
+    }
+    .showroom-tab-btn.active {
+      color: #ffffff;
+      background: var(--terra);
+    }
+    
+    .showroom-sub-btn {
+      background: var(--sand-50);
+      border: 1px solid var(--sand-200);
+      padding: 0.4rem 0.85rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--ink-700);
+      cursor: pointer;
+      border-radius: 20px;
+      transition: all 0.15s ease;
+      white-space: nowrap;
+    }
+    body.dark-mode .showroom-sub-btn {
+      background: #111827;
+      border-color: #1f2937;
+    }
+    .showroom-sub-btn:hover {
+      background: var(--sand-100);
+      border-color: var(--terra);
+    }
+    .showroom-sub-btn.active {
+      background: rgba(37, 99, 235, 0.08);
+      border-color: var(--terra);
+      color: var(--terra);
+    }
+
     /* ============================================================
        DESIGN TOKENS (LIGHT THEMED, ACCENT YELLOW)
        ============================================================ */
@@ -101,7 +268,8 @@
       --dark-border: rgba(255,255,255,0.08);
 
       /* Typography */
-      --font-body: 'Noto Sans', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --font-title: 'Outfit', sans-serif;
       --font-mono: 'JetBrains Mono', monospace;
 
       /* Layout */
@@ -195,16 +363,23 @@
 
     /* Horizontal Top Header Bar */
     .app-header-top {
-      background: var(--sand-100);
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--sand-200);
-      padding: 0.6rem 2rem;
+      padding: 0.75rem 2.25rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
       position: sticky;
       top: 0;
       z-index: 150;
-      box-shadow: 0 2px 10px rgba(var(--terra-shadow), 0.02);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.01), 0 1px 3px rgba(0, 0, 0, 0.01);
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+    body.dark-mode .app-header-top {
+      background: rgba(17, 24, 39, 0.85);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
     
     .header-logo-container {
@@ -2869,6 +3044,76 @@
               
             </div>
             
+                        <!-- Product Interface Gallery -->
+            <div class="section-title-dashboard" style="margin-top: 2rem;">
+              <span class="section-title-text purple">End-to-End Learning Suite</span>
+            </div>
+            <div class="dashboard-white-card" style="background: var(--sand-100); border: 1px solid var(--sand-200); padding: 2rem; display: flex; flex-direction: column; gap: 1.5rem; text-align: left; align-items: stretch; min-height: auto; margin-bottom: 1.75rem;">
+              
+              <!-- Section Header -->
+              <div style="display: flex; flex-direction: column; gap: 0.25rem; margin-bottom: 0.5rem;">
+                <p style="font-size: 1.15rem; font-weight: 700; color: var(--ink-900);">
+                  Interactive Platform Showroom
+                </p>
+                <p style="font-size: 0.95rem; color: var(--ink-500); line-height: 1.55;">
+                  We provide an end-to-end learning suite. Click the tabs below to explore student, faculty, and administrator scoped interfaces.
+                </p>
+              </div>
+
+              <!-- Main Role Tabs -->
+              <div style="overflow-x: auto; width: 100%; border-bottom: 1.5px solid var(--sand-200); padding-bottom: 0.75rem; margin-bottom: 0.5rem;">
+                <div class="showroom-tabs" style="display: flex; gap: 0.75rem; min-width: max-content;">
+                  <button class="showroom-tab-btn active" onclick="CentariApp.switchShowroomTab('candidate')">Candidate Portal</button>
+                  <button class="showroom-tab-btn" onclick="CentariApp.switchShowroomTab('faculty')">Faculty Portal</button>
+                  <button class="showroom-tab-btn" onclick="CentariApp.switchShowroomTab('admin')">Administrator Console</button>
+                </div>
+              </div>
+
+              <!-- Showroom Content Container -->
+              <div class="showroom-content" style="margin-top: 0.5rem; display: flex; flex-direction: column; gap: 1rem;">
+                
+                <!-- View Controls for multi-image tabs -->
+                <div style="overflow-x: auto; width: 100%;">
+                  <div id="showroom-subtabs" style="display: flex; gap: 0.5rem; min-width: max-content; margin-bottom: 0.5rem;">
+                    <!-- Dynamic sub-tabs injected via JS -->
+                  </div>
+                </div>
+
+                <!-- Interactive Web Showroom Browser Container -->
+                <div class="web-showroom-browser">
+                  <!-- Browser top chrome bar -->
+                  <div class="mock-browser-bar">
+                    <div style="display: flex; gap: 5px; align-items: center;">
+                      <span class="mock-browser-dot red"></span>
+                      <span class="mock-browser-dot yellow"></span>
+                      <span class="mock-browser-dot green"></span>
+                    </div>
+                    <div class="mock-browser-url" id="showroom-url-text">localhost:8000/dashboard</div>
+                  </div>
+
+                  <!-- Inner Web App layout -->
+                  <div class="mock-app-layout">
+                    <!-- Sidebar (Left) -->
+                    <div class="mock-app-sidebar" id="showroom-mock-sidebar">
+                      <!-- Loaded Dynamically -->
+                    </div>
+
+                    <!-- Content Workspace (Right) -->
+                    <div class="mock-app-content" id="showroom-mock-content">
+                      <!-- Loaded Dynamically -->
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Image Caption -->
+                <p id="showroom-display-caption" style="font-size: 0.95rem; color: var(--ink-900); line-height: 1.5; border-left: 3px solid var(--terra); padding-left: 0.75rem; margin-top: 0.5rem;">
+                  <strong>Candidate Workspace Home</strong> — Main student dashboard overview showing enrolled courses, progress metrics, and upcoming test modules.
+                </p>
+
+              </div>
+
+            </div>
+            
             <!-- Enterprise Tech Stack Section -->
             <div class="section-title-dashboard">
               <span class="section-title-text green">Enterprise Tech Stack</span>
@@ -4251,6 +4496,7 @@
           initColorTheme();
           setupNavigation();
           setupMobileHamburger();
+          if (document.getElementById('showroom-app-frame')) { switchShowroomTab('candidate'); }
           
           // Only initialize components if their respective DOM elements exist
           if (document.getElementById('leaderboard-standings-table')) {
@@ -5898,7 +6144,387 @@ Sent from centari LMS Portal`;
         showToast(`Sandbox Module: The ${name} section is enabled in customized enterprise deployments.`);
       }
 
+      // Showroom Interactive Database & Logic
+      const showroomData = {
+        candidate: [
+          {
+            url: 'localhost:8000/dashboard',
+            label: 'Candidate Workspace Home',
+            desc: 'Main student dashboard overview showing enrolled courses, progress metrics, and upcoming test modules.',
+            sidebar: `
+              <div class="mock-sidebar-item active">Dashboard</div>
+              <div class="mock-sidebar-item">Courses</div>
+              <div class="mock-sidebar-item">Test Series</div>
+              <div class="mock-sidebar-item">Current Affairs</div>
+              <div class="mock-sidebar-item">Rankings</div>
+              <div class="mock-sidebar-item">Analytics</div>
+            `,
+            content: `
+              <div style="background: var(--terra); color:#ffffff; padding:1.25rem; border-radius:12px; margin-bottom:1rem; box-shadow: 0 4px 12px rgba(37,99,235,0.15); transition: background-color 0.3s;">
+                <span style="font-size:0.6rem; font-weight:800; background:rgba(255,255,255,0.2); padding:0.15rem 0.4rem; border-radius:4px; font-family:var(--font-title);">CANDIDATE PORTAL</span>
+                <h3 style="font-size:1.25rem; font-weight:800; margin:0.3rem 0; font-family:var(--font-title);">Hello, Jason</h3>
+                <p style="font-size:0.75rem; margin:0; opacity:0.8;">"Success is not final, failure is not fatal: it is the courage to continue that counts."</p>
+              </div>
+              <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:0.5rem; margin-bottom:1rem;">
+                <div style="background:var(--sand-100); border:1px solid var(--sand-200); padding:0.6rem; border-radius:8px; text-align:center; transition: background-color 0.3s, border-color 0.3s;">
+                  <div style="font-size:1.1rem; font-weight:800; color:var(--terra); font-family:var(--font-title);">1</div>
+                  <div style="font-size:0.55rem; color:var(--ink-500); font-weight:700;">Courses</div>
+                </div>
+                <div style="background:var(--sand-100); border:1px solid var(--sand-200); padding:0.6rem; border-radius:8px; text-align:center; transition: background-color 0.3s, border-color 0.3s;">
+                  <div style="font-size:1.1rem; font-weight:800; color:#7c3aed; font-family:var(--font-title);">0</div>
+                  <div style="font-size:0.55rem; color:var(--ink-500); font-weight:700;">Videos</div>
+                </div>
+                <div style="background:var(--sand-100); border:1px solid var(--sand-200); padding:0.6rem; border-radius:8px; text-align:center; transition: background-color 0.3s, border-color 0.3s;">
+                  <div style="font-size:1.1rem; font-weight:800; color:#059669; font-family:var(--font-title);">12</div>
+                  <div style="font-size:0.55rem; color:var(--ink-500); font-weight:700;">Tests</div>
+                </div>
+                <div style="background:var(--sand-100); border:1px solid var(--sand-200); padding:0.6rem; border-radius:8px; text-align:center; transition: background-color 0.3s, border-color 0.3s;">
+                  <div style="font-size:1.1rem; font-weight:800; color:#d97706; font-family:var(--font-title);">0.55%</div>
+                  <div style="font-size:0.55rem; color:var(--ink-500); font-weight:700;">Avg Score</div>
+                </div>
+              </div>
+              <div style="background:var(--sand-100); border:1px solid var(--sand-200); padding:0.75rem; border-radius:8px; transition: background-color 0.3s, border-color 0.3s;">
+                <div style="font-size:0.7rem; font-weight:800; color:var(--ink-900); margin-bottom:0.4rem; border-bottom:1px solid var(--sand-200); padding-bottom:0.25rem; font-family:var(--font-title);">Continue Learning</div>
+                <div style="display:flex; justify-content:space-between; font-size:0.65rem; font-weight:700; color:var(--ink-700); margin-bottom:0.2rem;">
+                  <span>Youtube Should work</span>
+                  <span style="color:var(--terra);">73%</span>
+                </div>
+                <div style="width:100%; height:6px; background:var(--sand-50); border-radius:3px; overflow:hidden; transition: background-color 0.3s;">
+                  <div style="width:73%; height:100%; background:var(--terra);"></div>
+                </div>
+              </div>
+            `
+          },
+          {
+            url: 'localhost:8000/videos/5',
+            label: 'Integrated Lecture Player',
+            desc: 'Custom curriculum viewer rendering YouTube video lectures with integrated sidebar navigation.',
+            sidebar: `
+              <div class="mock-sidebar-item">Dashboard</div>
+              <div class="mock-sidebar-item active">Courses</div>
+              <div class="mock-sidebar-item">Test Series</div>
+              <div class="mock-sidebar-item">Current Affairs</div>
+              <div class="mock-sidebar-item">Rankings</div>
+              <div class="mock-sidebar-item">Analytics</div>
+            `,
+            content: `
+              <div style="display:grid; grid-template-columns: 1.8fr 1.2fr; gap:0.75rem; height:100%;">
+                <div>
+                  <div style="background:#0f172a; border-radius:8px; aspect-ratio:16/10; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; border:1px solid var(--sand-300);">
+                    <div style="color:#ffffff; font-size:0.75rem; font-weight:700; display:flex; flex-direction:column; align-items:center; gap:0.4rem; font-family:var(--font-title);">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+                      <span>YouTube Lecture Integration</span>
+                    </div>
+                    <div style="position:absolute; bottom:0.5rem; left:0.5rem; background:rgba(0,0,0,0.6); color:#ffffff; font-size:0.6rem; padding:0.15rem 0.4rem; border-radius:4px; font-family:var(--font-mono);">
+                      candidate@centari.in | IP: 192.168.1.104
+                    </div>
+                  </div>
+                  <h4 style="font-size:0.85rem; font-weight:800; color:var(--ink-900); margin:0.5rem 0 0.2rem 0; font-family:var(--font-title);">Youtube Should work</h4>
+                  <span style="font-size:0.6rem; color:var(--ink-500); font-weight:700;">SCIENCE AND TECHNOLOGY &bull; Duration: 00:00</span>
+                </div>
+                <div style="background:var(--sand-100); border:1px solid var(--sand-200); border-radius:8px; padding:0.5rem; display:flex; flex-direction:column; gap:0.35rem; transition: background-color 0.3s, border-color 0.3s;">
+                  <div style="font-size:0.65rem; font-weight:800; color:var(--ink-500); text-transform:uppercase; border-bottom:1px solid var(--sand-200); padding-bottom:0.25rem; font-family:var(--font-title);">Curriculum</div>
+                  <div style="font-size:0.65rem; font-weight:700; color:var(--ink-700); padding:0.25rem; border-radius:4px; background:var(--sand-50); transition: background-color 0.3s;">Testing Tests (00:00)</div>
+                  <div style="font-size:0.65rem; font-weight:700; color:var(--terra); padding:0.25rem; border-radius:4px; background:rgba(37,99,235,0.06); border-left:2px solid var(--terra);">Youtube Should work</div>
+                </div>
+              </div>
+            `
+          },
+          {
+            url: 'localhost:8000/exams/polity-daily-quiz-1/verify',
+            label: 'Secured Passcode Exam Gate',
+            desc: 'Access inhibitor verification box preventing unauthorized candidates from launching protected tests.',
+            sidebar: `
+              <div class="mock-sidebar-item">Dashboard</div>
+              <div class="mock-sidebar-item">Courses</div>
+              <div class="mock-sidebar-item active">Test Series</div>
+              <div class="mock-sidebar-item">Current Affairs</div>
+              <div class="mock-sidebar-item">Rankings</div>
+              <div class="mock-sidebar-item">Analytics</div>
+            `,
+            content: `
+              <div style="display:flex; align-items:center; justify-content:center; height:100%; min-height:220px;">
+                <div style="background:var(--sand-100); border:1px solid var(--sand-200); border-radius:12px; padding:1.25rem; max-width:280px; width:100%; text-align:center; box-shadow:0 4px 15px rgba(0,0,0,0.02); transition: background-color 0.3s, border-color 0.3s;">
+                  <div style="width:36px; height:36px; border-radius:50%; background:rgba(37,99,235,0.08); color:var(--terra); display:flex; align-items:center; justify-content:center; margin:0 auto 0.6rem auto;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                  </div>
+                  <h4 style="font-size:0.85rem; font-weight:800; color:var(--ink-900); margin:0 0 0.3rem 0; font-family:var(--font-title);">Passcode Required</h4>
+                  <p style="font-size:0.65rem; color:var(--ink-500); line-height:1.4; margin-bottom:0.75rem;">This exam is protected. Please enter the passcode to start.</p>
+                  <input type="password" placeholder="Enter passcode" style="width:100%; padding:0.4rem 0.75rem; border:1px solid var(--sand-300); border-radius:6px; font-size:0.7rem; margin-bottom:0.75rem; text-align:center; background:var(--sand-50); color:var(--ink-900); font-family:var(--font-mono); transition: background-color 0.3s, border-color 0.3s;" readonly value="••••••••" />
+                  <div style="display:flex; gap:0.4rem;">
+                    <button style="flex:1; background:var(--sand-50); border:1px solid var(--sand-200); font-size:0.65rem; padding:0.4rem; border-radius:6px; font-weight:700; color:var(--ink-700); cursor:pointer; transition: background-color 0.3s, border-color 0.3s;">Back</button>
+                    <button style="flex:1.5; background:var(--terra); border:none; font-size:0.65rem; padding:0.4rem; border-radius:6px; font-weight:700; color:#ffffff; cursor:pointer;">Verify & Start</button>
+                  </div>
+                </div>
+              </div>
+            `
+          }
+        ],
+        faculty: [
+          {
+            url: 'localhost:8000/faculty/current-affairs',
+            label: 'Scoped Content Publisher',
+            desc: 'Faculty-scoped admin dashboard for publishing lecture courses, current affairs analyses, and managing MCQ mock exams.',
+            sidebar: `
+              <div class="mock-sidebar-item">Dashboard</div>
+              <div class="mock-sidebar-section">Content</div>
+              <div class="mock-sidebar-item">Courses</div>
+              <div class="mock-sidebar-item active">Current Affairs</div>
+              <div class="mock-sidebar-item">Live Telecasts</div>
+              <div class="mock-sidebar-item">Videos</div>
+              <div class="mock-sidebar-section">Examinations</div>
+              <div class="mock-sidebar-item">Exams</div>
+            `,
+            content: `
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
+                <h3 style="font-size:1.05rem; font-weight:800; color:var(--ink-900); margin:0; font-family:var(--font-title);">Current Affairs</h3>
+                <button style="background:var(--terra); color:#ffffff; border:none; font-size:0.65rem; font-weight:700; padding:0.35rem 0.75rem; border-radius:6px; cursor:pointer;">+ New Current Affairs</button>
+              </div>
+              <div style="background:var(--sand-100); border:1px solid var(--sand-200); border-radius:8px; overflow:hidden; transition: background-color 0.3s, border-color 0.3s;">
+                <table style="width:100%; border-collapse:collapse; text-align:left; font-size:0.65rem;">
+                  <thead>
+                    <tr style="background:var(--sand-50); border-bottom:1.5px solid var(--sand-200); color:var(--ink-700); font-weight:800; transition: background-color 0.3s, border-color 0.3s;">
+                      <th style="padding:0.5rem;">Title</th>
+                      <th style="padding:0.5rem;">Type</th>
+                      <th style="padding:0.5rem;">Subject</th>
+                      <th style="padding:0.5rem;">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr style="border-bottom:1px solid var(--sand-200); color:var(--ink-900); transition: border-color 0.3s;">
+                      <td style="padding:0.5rem; font-weight:700;">Governor's Role in Bill Assent</td>
+                      <td style="padding:0.5rem;"><span style="background:#fef3c7; color:#b45309; padding:0.15rem 0.35rem; border-radius:4px; font-weight:700; font-size:0.58rem;">Editorial Analysis</span></td>
+                      <td style="padding:0.5rem; color:var(--ink-500);">Polity</td>
+                      <td style="padding:0.5rem; color:#059669; font-weight:700;">Published</td>
+                    </tr>
+                    <tr style="color:var(--ink-900);">
+                      <td style="padding:0.5rem; font-weight:700;">Understanding Capital Adequacy</td>
+                      <td style="padding:0.5rem;"><span style="background:#e0f2fe; color:#0369a1; padding:0.15rem 0.35rem; border-radius:4px; font-weight:700; font-size:0.58rem;">Daily CA</span></td>
+                      <td style="padding:0.5rem; color:var(--ink-500);">Economics</td>
+                      <td style="padding:0.5rem; color:#059669; font-weight:700;">Published</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            `
+          }
+        ],
+        admin: [
+          {
+            url: 'localhost:8000/admin/categories',
+            label: 'Syllabus Categories Manager',
+            desc: 'Filament-based administration table to configure syllabus topics, edit categories, and define sort hierarchies.',
+            sidebar: `
+              <div class="mock-sidebar-section">System</div>
+              <div class="mock-sidebar-item">Audit Logs</div>
+              <div class="mock-sidebar-section">Users</div>
+              <div class="mock-sidebar-item">Batches</div>
+              <div class="mock-sidebar-section">Content</div>
+              <div class="mock-sidebar-item active">Categories</div>
+              <div class="mock-sidebar-item">Courses</div>
+            `,
+            content: `
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
+                <h3 style="font-size:1.05rem; font-weight:800; color:var(--ink-900); margin:0; font-family:var(--font-title);">Categories</h3>
+                <button style="background:var(--terra); color:#ffffff; border:none; font-size:0.65rem; font-weight:700; padding:0.35rem 0.75rem; border-radius:6px; cursor:pointer;">+ New Category</button>
+              </div>
+              <div style="background:var(--sand-100); border:1px solid var(--sand-200); border-radius:8px; overflow:hidden; transition: background-color 0.3s, border-color 0.3s;">
+                <table style="width:100%; border-collapse:collapse; text-align:left; font-size:0.65rem;">
+                  <thead>
+                    <tr style="background:var(--sand-50); border-bottom:1.5px solid var(--sand-200); color:var(--ink-700); font-weight:800; transition: background-color 0.3s, border-color 0.3s;">
+                      <th style="padding:0.5rem;">Name</th>
+                      <th style="padding:0.5rem;">Slug</th>
+                      <th style="padding:0.5rem;">Icon</th>
+                      <th style="padding:0.5rem; text-align:center;">Active</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr style="border-bottom:1px solid var(--sand-200); color:var(--ink-900); transition: border-color 0.3s;">
+                      <td style="padding:0.5rem; font-weight:700;">General Studies</td>
+                      <td style="padding:0.5rem; font-family:var(--font-mono); color:var(--ink-500);">general-studies</td>
+                      <td style="padding:0.5rem; color:var(--ink-500);">academic-cap</td>
+                      <td style="padding:0.5rem; text-align:center; color:#059669; font-weight:700;">Yes</td>
+                    </tr>
+                    <tr style="color:var(--ink-900);">
+                      <td style="padding:0.5rem; font-weight:700;">Optional Subjects</td>
+                      <td style="padding:0.5rem; font-family:var(--font-mono); color:var(--ink-500);">optional-subjects</td>
+                      <td style="padding:0.5rem; color:var(--ink-500);">book-open</td>
+                      <td style="padding:0.5rem; text-align:center; color:#059669; font-weight:700;">Yes</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            `
+          },
+          {
+            url: 'localhost:8000/admin/videos',
+            label: 'Lecture Video Repository',
+            desc: 'General media vault mapping external YouTube URLs, course topics, and duration parameters.',
+            sidebar: `
+              <div class="mock-sidebar-section">System</div>
+              <div class="mock-sidebar-item">Audit Logs</div>
+              <div class="mock-sidebar-section">Content</div>
+              <div class="mock-sidebar-item">Categories</div>
+              <div class="mock-sidebar-item">Courses</div>
+              <div class="mock-sidebar-item active">Videos</div>
+            `,
+            content: `
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
+                <h3 style="font-size:1.05rem; font-weight:800; color:var(--ink-900); margin:0; font-family:var(--font-title);">Videos</h3>
+                <button style="background:var(--terra); color:#ffffff; border:none; font-size:0.65rem; font-weight:700; padding:0.35rem 0.75rem; border-radius:6px; cursor:pointer;">+ New Video</button>
+              </div>
+              <div style="background:var(--sand-100); border:1px solid var(--sand-200); border-radius:8px; overflow:hidden; transition: background-color 0.3s, border-color 0.3s;">
+                <table style="width:100%; border-collapse:collapse; text-align:left; font-size:0.65rem;">
+                  <thead>
+                    <tr style="background:var(--sand-50); border-bottom:1.5px solid var(--sand-200); color:var(--ink-700); font-weight:800; transition: background-color 0.3s, border-color 0.3s;">
+                      <th style="padding:0.5rem;">Title</th>
+                      <th style="padding:0.5rem;">Course</th>
+                      <th style="padding:0.5rem;">Section</th>
+                      <th style="padding:0.5rem;">Duration</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr style="border-bottom:1px solid var(--sand-200); color:var(--ink-900); transition: border-color 0.3s;">
+                      <td style="padding:0.5rem; font-weight:700;">Youtube Should work</td>
+                      <td style="padding:0.5rem; color:var(--ink-500);">Youtube Integration</td>
+                      <td style="padding:0.5rem; color:var(--ink-500);">Test Video</td>
+                      <td style="padding:0.5rem;">00:00</td>
+                    </tr>
+                    <tr style="color:var(--ink-900);">
+                      <td style="padding:0.5rem; font-weight:700;">Testing Tests</td>
+                      <td style="padding:0.5rem; color:var(--ink-500);">Youtube Integration</td>
+                      <td style="padding:0.5rem; color:var(--ink-500);">S2</td>
+                      <td style="padding:0.5rem;">00:00</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            `
+          },
+          {
+            url: 'localhost:8000/admin/question-bank',
+            label: 'MCQ Question Bank Builder',
+            desc: 'Complete query engine to search, filter, and import mock questions categorized by subject, topic, and difficulty.',
+            sidebar: `
+              <div class="mock-sidebar-section">System</div>
+              <div class="mock-sidebar-item">Audit Logs</div>
+              <div class="mock-sidebar-section">Examinations</div>
+              <div class="mock-sidebar-item">Exams</div>
+              <div class="mock-sidebar-item">Questions</div>
+              <div class="mock-sidebar-item active">Question Bank</div>
+            `,
+            content: `
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
+                <h3 style="font-size:1.05rem; font-weight:800; color:var(--ink-900); margin:0; font-family:var(--font-title);">Question Bank</h3>
+                <button style="background:var(--terra); color:#ffffff; border:none; font-size:0.65rem; font-weight:700; padding:0.35rem 0.75rem; border-radius:6px; cursor:pointer;">+ New Question</button>
+              </div>
+              <div style="background:var(--sand-100); border:1px solid var(--sand-200); border-radius:8px; overflow:hidden; transition: background-color 0.3s, border-color 0.3s;">
+                <table style="width:100%; border-collapse:collapse; text-align:left; font-size:0.65rem;">
+                  <thead>
+                    <tr style="background:var(--sand-50); border-bottom:1.5px solid var(--sand-200); color:var(--ink-700); font-weight:800; transition: background-color 0.3s, border-color 0.3s;">
+                      <th style="padding:0.5rem;">Subject</th>
+                      <th style="padding:0.5rem;">Type</th>
+                      <th style="padding:0.5rem;">Difficulty</th>
+                      <th style="padding:0.5rem;">Question</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr style="border-bottom:1px solid var(--sand-200); color:var(--ink-900); transition: border-color 0.3s;">
+                      <td style="padding:0.5rem; font-weight:700; color:var(--terra);">Geography</td>
+                      <td style="padding:0.5rem;">Single MCQ</td>
+                      <td style="padding:0.5rem;"><span style="background:#ffe4e6; color:#be123c; padding:0.1rem 0.3rem; border-radius:4px; font-weight:700;">hard</span></td>
+                      <td style="padding:0.5rem; color:var(--ink-500); max-width:80px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Mock Question 10...</td>
+                    </tr>
+                    <tr style="color:var(--ink-900);">
+                      <td style="padding:0.5rem; font-weight:700; color:var(--terra);">Geography</td>
+                      <td style="padding:0.5rem;">Single MCQ</td>
+                      <td style="padding:0.5rem;"><span style="background:#ffe4e6; color:#be123c; padding:0.1rem 0.3rem; border-radius:4px; font-weight:700;">hard</span></td>
+                      <td style="padding:0.5rem; color:var(--ink-500); max-width:80px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Mock Question 9...</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            `
+          }
+        ]
+      };
+
+      let activeShowroomRole = 'candidate';
+      let activeShowroomSubIndex = 0;
+
+      function switchShowroomTab(role) {
+        activeShowroomRole = role;
+        activeShowroomSubIndex = 0;
+        
+        // Update active class on role buttons
+        const buttons = document.querySelectorAll('.showroom-tab-btn');
+        buttons.forEach(btn => {
+          if (btn.getAttribute('onclick') && btn.getAttribute('onclick').includes(role)) {
+            btn.classList.add('active');
+          } else {
+            btn.classList.remove('active');
+          }
+        });
+        
+        renderShowroomSubtabs();
+        updateShowroomDisplay();
+      }
+
+      function renderShowroomSubtabs() {
+        const container = document.getElementById('showroom-subtabs');
+        if (!container) return;
+        container.innerHTML = '';
+        
+        const items = showroomData[activeShowroomRole];
+        if (items.length <= 1) {
+          container.style.display = 'none';
+          return;
+        }
+        container.style.display = 'flex';
+        
+        items.forEach((item, index) => {
+          const btn = document.createElement('button');
+          btn.className = `showroom-sub-btn ${index === activeShowroomSubIndex ? 'active' : ''}`;
+          btn.textContent = item.label;
+          btn.onclick = () => {
+            activeShowroomSubIndex = index;
+            // update active sub-btn
+            const subBtns = container.querySelectorAll('.showroom-sub-btn');
+            subBtns.forEach((sb, idx) => {
+              if (idx === index) sb.classList.add('active');
+              else sb.classList.remove('active');
+            });
+            updateShowroomDisplay();
+          };
+          container.appendChild(btn);
+        });
+      }
+
+      function updateShowroomDisplay() {
+        const urlEl = document.getElementById('showroom-url-text');
+        const sidebarEl = document.getElementById('showroom-mock-sidebar');
+        const contentEl = document.getElementById('showroom-mock-content');
+        const captionEl = document.getElementById('showroom-display-caption');
+        if (!urlEl || !sidebarEl || !contentEl || !captionEl) return;
+        
+        const item = showroomData[activeShowroomRole][activeShowroomSubIndex];
+        
+        // Smooth transition
+        contentEl.style.opacity = '0.3';
+        sidebarEl.style.opacity = '0.3';
+        setTimeout(() => {
+          urlEl.textContent = item.url;
+          sidebarEl.innerHTML = item.sidebar;
+          contentEl.innerHTML = item.content;
+          captionEl.innerHTML = `<strong>${item.label}</strong> — ${item.desc}`;
+          contentEl.style.opacity = '1';
+          sidebarEl.style.opacity = '1';
+        }, 120);
+      }
+
+
       return {
+        switchShowroomTab: switchShowroomTab,
         init: init,
         routeToTab: routeToTab,
         selectPricingPlan: selectPricingPlan,
