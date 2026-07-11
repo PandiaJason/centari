@@ -62,30 +62,30 @@
   <!-- FONTS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700;800&family=Source+Sans+3:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,slnt,wdth,wght,ROND@8..144,-10..0,25..150,400..500,0..100&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     /* ============================================================
        DESIGN TOKENS (LIGHT THEMED, ACCENT YELLOW)
        ============================================================ */
     :root {
-      --sand-50:  #eef2f7;   /* slate main bg of Thisai */
+      --sand-50:  #F8F9FC;   /* slate main bg of Thisai */
       --sand-100: #ffffff;   /* clean pure-white elements */
-      --sand-200: #dbeafe;   /* light blue card borders */
+      --sand-200: rgba(33, 34, 38, .06);   /* light blue card borders */
       --sand-300: #cbd5e1;
       --sand-400: #94a3b8;
       --sand-500: #64748b;
 
       /* Ink */
-      --ink-900: #0f172a;   /* high contrast deep-slate text */
-      --ink-700: #1e293b;   /* slate-800 text */
-      --ink-500: #475569;   /* slate-600 muted text */
-      --ink-300: #94a3b8;
+      --ink-900: #121317;   /* high contrast deep-slate text */
+      --ink-700: #2F3034;   /* slate-800 text */
+      --ink-500: #45474D;   /* slate-600 muted text */
+      --ink-300: #B2BBC5;
 
       /* Thisai Blue & Indigo Accent System */
-      --terra:        #2563eb;   /* primary brand blue */
-      --terra-dark:   #1e40af;   /* dark accessible blue text */
-      --terra-light:  #3b82f6;   /* hover brand blue */
+      --terra:        #3279F9;   /* primary brand blue */
+      --terra-dark:   #1a73e8;   /* dark accessible blue text */
+      --terra-light:  #5a95f9;   /* hover brand blue */
       --terra-tint:   rgba(var(--terra-shadow), 0.06); /* blue accent tint */
       --terra-border: rgba(var(--terra-shadow), 0.18);
 
@@ -101,7 +101,7 @@
       --dark-border: rgba(255,255,255,0.08);
 
       /* Typography */
-      --font-body: 'Noto Sans', sans-serif;
+      --font-body: 'Google Sans Flex', 'Google Sans', sans-serif;
       --font-mono: 'JetBrains Mono', monospace;
 
       /* Layout */
@@ -113,12 +113,12 @@
     }
 
     body.theme-blue {
-      --terra:        #2563eb;   /* primary brand blue */
-      --terra-dark:   #1e40af;   /* dark accessible blue text */
-      --terra-light:  #3b82f6;   /* hover brand blue */
-      --terra-tint:   rgba(var(--terra-shadow), 0.06); /* blue accent tint */
+      --terra:        #3279F9;
+      --terra-dark:   #1a73e8;
+      --terra-light:  #5a95f9;
+      --terra-tint:   rgba(var(--terra-shadow), 0.06);
       --terra-border: rgba(var(--terra-shadow), 0.18);
-      --terra-shadow: 37, 99, 235;
+      --terra-shadow: 50, 121, 249;
     }
     body.theme-purple {
       --terra:        #7c3aed;   /* primary brand purple */
@@ -169,7 +169,7 @@
        RESET
        ============================================================ */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    h1, h2, h3, h4, h5, h6 { font-family: 'Source Sans 3', 'Source Sans Pro', sans-serif; letter-spacing: -0.015em; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Google Sans Flex', 'Google Sans', sans-serif; font-weight: 450; letter-spacing: -0.015em; }
     body {
       font-family: var(--font-body);
       background: var(--sand-50);
@@ -240,10 +240,7 @@
       font-family: 'Source Sans 3', 'Source Sans Pro', sans-serif;
       font-weight: 500;
     }
-    .logo-serif {
-      font-family: 'Perpetua', Georgia, serif;
-      font-weight: bold;
-    }
+    .logo-serif { font-family: 'Google Sans Flex', 'Google Sans', sans-serif; font-weight: 500; letter-spacing: -0.025em; }
 
     
     .header-navbar {
@@ -2666,9 +2663,7 @@
 
       /* Mobile header override: hide logo-serif for responsive space */
     @media (max-width: 900px) {
-      .app-header-top .logo-serif {
-        display: none !important;
-      }
+      .app-header-top .logo-serif { font-family: 'Google Sans Flex', 'Google Sans', sans-serif; font-weight: 500; letter-spacing: -0.025em; }
     }
     .tech-logos-grid {
       display: grid;
@@ -2679,6 +2674,62 @@
     @media (max-width: 600px) {
       .tech-logos-grid {
         grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    /* Google Antigravity Style Customizations */
+    .landing-main-title {
+      font-family: 'Google Sans Flex', 'Google Sans', sans-serif;
+      font-size: 3.4rem;
+      font-weight: 450;
+      line-height: 1.08;
+      letter-spacing: -1.4px;
+      color: var(--ink-900);
+      font-variation-settings: "wdth" 100, "opsz" 144;
+      margin-bottom: 0.75rem;
+    }
+    .landing-btn-primary {
+      background: var(--ink-900);
+      color: #ffffff;
+      border: none;
+      padding: 0.65rem 1.4rem;
+      border-radius: 9999px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      cursor: pointer;
+      font-family: 'Google Sans Flex', 'Google Sans', sans-serif;
+      transition: background-color 0.2s, transform 0.15s;
+    }
+    .landing-btn-primary:hover {
+      background: var(--palette-grey-800, #45474D);
+      transform: translateY(-1px);
+    }
+    .landing-btn-secondary {
+      background: transparent;
+      color: var(--ink-900);
+      border: 1.5px solid var(--sand-300);
+      padding: 0.65rem 1.4rem;
+      border-radius: 9999px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      cursor: pointer;
+      font-family: 'Google Sans Flex', 'Google Sans', sans-serif;
+      transition: background-color 0.2s, border-color 0.2s, transform 0.15s;
+    }
+    .landing-btn-secondary:hover {
+      background: var(--sand-50);
+      border-color: var(--ink-900);
+      transform: translateY(-1px);
+    }
+    @media (max-width: 1024px) {
+      .landing-main-title {
+        font-size: 2.6rem;
+        letter-spacing: -1px;
+      }
+    }
+    @media (max-width: 767px) {
+      .landing-main-title {
+        font-size: 2.2rem;
+        letter-spacing: -0.7px;
       }
     }
     </style>
@@ -2736,20 +2787,19 @@
            ================================================================ -->
       <section class="view-pane active" id="view-dashboard" role="tabpanel" aria-labelledby="tab-dashboard">
         
-        <!-- Welcome Hero Info matching screenshot -->
-        <div class="welcome-hero-dashboard" style="display: flex; align-items: center; justify-content: space-between; gap: 2rem;">
+        <!-- Welcome Hero Info matching Antigravity style -->
+        <div class="welcome-hero-dashboard" style="display: flex; align-items: center; justify-content: space-between; gap: 2rem; padding: 2rem 0;">
           <div style="flex: 1; min-width: 0;">
-            <span class="badge-candidate-portal">Interactive Demo Sandbox</span>
-            <h1 style="font-size: 2.2rem; font-weight: 800; line-height: 1.25; margin-bottom: 0.4rem;">Enterprise LMS built for EdTech & Institutions</h1>
-            <p class="dashboard-subtext" id="dashboard-user-greeting">Hello, Visitor</p>
-            <div style="display: flex; flex-direction: column; gap: 0.15rem; margin-top: 0.25rem;">
-              <p class="dashboard-quote">"Design is not just what it looks like. Design is how it works."</p>
-              <p class="dashboard-quote">"Innovation distinguishes between a leader and a follower."</p>
-              <p class="dashboard-quote">"Stay hungry. Stay foolish." — Steve Jobs</p>
+            <span class="badge-candidate-portal" style="background: rgba(50, 121, 249, 0.08); color: #3279F9; font-weight: 500; padding: 0.25rem 0.6rem; border-radius: 9999px; font-size: 0.75rem; font-family: var(--font-body); letter-spacing: 0.02em;">Interactive Demo Sandbox</span>
+            <h1 class="landing-main-title">Learn the new way.</h1>
+            <p class="dashboard-subtext" style="font-size: 1.05rem; color: var(--ink-500); line-height: 1.5; max-width: 520px; margin-bottom: 1.25rem;">Enterprise learning management suite designed to orchestrate video lectures, low-latency live streams, and secure mock exams.</p>
+            <div style="display: flex; gap: 0.75rem; margin-top: 1rem; flex-wrap: wrap;">
+              <button onclick="CentariApp.routeToTab('contact')" class="landing-btn-primary">Request a Demo</button>
+              <button onclick="CentariApp.routeToTab('exams')" class="landing-btn-secondary">Explore Simulator</button>
             </div>
           </div>
-          <div class="mascot-container">
-            <img src="./logo.svg" id="hero-mascot" alt="centari Logo" style="max-width: 95%; max-height: 95%; filter: drop-shadow(0 6px 12px rgba(0,0,0,0.15)); transition: transform 0.15s ease-out;" />
+          <div class="mascot-container" style="flex-shrink: 0; width: 220px; height: 220px; display: flex; align-items: center; justify-content: center;">
+            <img src="./logo.svg" id="hero-mascot" alt="centari Logo" style="max-width: 95%; max-height: 95%; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.06)); transition: transform 0.15s ease-out;" />
           </div>
         </div>
 
