@@ -69,7 +69,7 @@
        DESIGN TOKENS (LIGHT THEMED, ACCENT YELLOW)
        ============================================================ */
     :root {
-      --sand-50:  #F8F9FC;   /* slate main bg of Thisai */
+      --sand-50:  #ffffff;   /* slate main bg of Thisai */
       --sand-100: #ffffff;   /* clean pure-white elements */
       --sand-200: rgba(33, 34, 38, .06);   /* light blue card borders */
       --sand-300: #cbd5e1;
@@ -195,16 +195,16 @@
 
     /* Horizontal Top Header Bar */
     .app-header-top {
-      background: var(--sand-100);
-      border-bottom: 1px solid var(--sand-200);
-      padding: 0.6rem 2rem;
+      background: #ffffff;
+      border-bottom: 1px solid rgba(33, 34, 38, 0.05);
+      padding: 0.8rem 2rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
       position: sticky;
       top: 0;
       z-index: 150;
-      box-shadow: 0 2px 10px rgba(var(--terra-shadow), 0.02);
+      box-shadow: none;
     }
     
     .header-logo-container {
@@ -367,11 +367,11 @@
     /* Main Area Container */
     .app-main {
       flex: 1;
-      background: var(--sand-50);
+      background: #ffffff;
       display: flex;
       flex-direction: column;
       min-width: 0;
-      padding: 2rem;
+      padding: 0 2rem;
       max-width: 1280px;
       margin: 0 auto;
       width: 100%;
@@ -380,15 +380,19 @@
     /* ============================================================
        DASHBOARD PREMIUM COMPONENT STYLES
        ============================================================ */
-    .welcome-hero-dashboard {
-      background: linear-gradient(135deg, var(--terra-dark), var(--terra), var(--terra-light));
-      border-radius: 24px;
-      padding: 2.25rem;
-      box-shadow: 0 10px 25px rgba(var(--terra-shadow), 0.08);
-      margin-bottom: 2rem;
-      color: #ffffff;
+        .welcome-hero-dashboard {
+      background: transparent;
+      border-radius: 0;
+      padding: 7rem 1.5rem 5rem 1.5rem;
+      box-shadow: none;
+      margin-bottom: 2.5rem;
+      color: var(--ink-900);
       position: relative;
-      overflow: hidden;
+      overflow: visible;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
     }
     .badge-candidate-portal {
       display: inline-block;
@@ -468,29 +472,21 @@
     .stat-card-dashboard:hover {
       transform: translateY(-4px);
     }
-    .stat-card-dashboard.blue { background: #2563eb; }
-    .stat-card-dashboard.purple { background: #7c3aed; }
-    .stat-card-dashboard.green { background: #059669; }
-    .stat-card-dashboard.orange { background: #d97706; }
+    .stat-card-dashboard.blue { background: #ffffff; border: 1px solid rgba(50, 121, 249, 0.15); color: var(--ink-900); }
+    .stat-card-dashboard.purple { background: #ffffff; border: 1px solid rgba(139, 92, 246, 0.15); color: var(--ink-900); }
+    .stat-card-dashboard.green { background: #ffffff; border: 1px solid rgba(16, 185, 129, 0.15); color: var(--ink-900); }
+    .stat-card-dashboard.orange { background: #ffffff; border: 1px solid rgba(245, 158, 11, 0.15); color: var(--ink-900); }
     
-    .stat-card-dashboard.blue:hover {
-      box-shadow: 0 10px 30px rgba(var(--terra-shadow), 0.35);
-    }
-    .stat-card-dashboard.purple:hover {
-      box-shadow: 0 10px 30px rgba(124, 58, 237, 0.35);
-    }
-    .stat-card-dashboard.green:hover {
-      box-shadow: 0 10px 30px rgba(5, 150, 105, 0.35);
-    }
-    .stat-card-dashboard.orange:hover {
-      box-shadow: 0 10px 30px rgba(217, 119, 6, 0.35);
-    }
+    .stat-card-dashboard.blue:hover { box-shadow: 0 8px 24px rgba(50, 121, 249, 0.08); }
+    .stat-card-dashboard.purple:hover { box-shadow: 0 8px 24px rgba(124, 58, 237, 0.08); }
+    .stat-card-dashboard.green:hover { box-shadow: 0 8px 24px rgba(5, 150, 105, 0.08); }
+    .stat-card-dashboard.orange:hover { box-shadow: 0 8px 24px rgba(217, 119, 6, 0.08); }
     
     .stat-card-icon-box {
       width: 44px;
       height: 44px;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.18);
+      background: var(--sand-50);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -499,7 +495,7 @@
     .stat-card-icon-box svg {
       width: 22px;
       height: 22px;
-      stroke: #ffffff;
+      stroke: var(--terra);
       stroke-width: 2px;
       fill: none;
     }
@@ -511,7 +507,7 @@
       font-size: 0.65rem;
       font-weight: 700;
       letter-spacing: 0.06em;
-      color: rgba(255, 255, 255, 0.85);
+      color: var(--ink-500);
       text-transform: uppercase;
     }
     .stat-card-value {
@@ -2152,7 +2148,16 @@
     
     /* Fullscreen exam styles */
     body.fullscreen-exam-active .app-header-top {
-      display: none !important;
+      background: #ffffff;
+      border-bottom: 1px solid rgba(33, 34, 38, 0.05);
+      padding: 0.8rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 150;
+      box-shadow: none;
     }
     body.fullscreen-exam-active .app-main {
       padding: 0 !important;
@@ -2184,8 +2189,17 @@
        ============================================================ */
     @media (max-width: 900px) {
       .app-header-top {
-        padding: 0.6rem 1.25rem;
-      }
+      background: #ffffff;
+      border-bottom: 1px solid rgba(33, 34, 38, 0.05);
+      padding: 0.8rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 150;
+      box-shadow: none;
+    }
       .nav-hamburger {
         display: flex;
         cursor: pointer;
@@ -2263,10 +2277,20 @@
     }
 
     @media (max-width: 580px) {
-      .welcome-hero-dashboard {
-        padding: 1.5rem 1.25rem;
-        margin-bottom: 1.5rem;
-      }
+          .welcome-hero-dashboard {
+      background: transparent;
+      border-radius: 0;
+      padding: 7rem 1.5rem 5rem 1.5rem;
+      box-shadow: none;
+      margin-bottom: 2.5rem;
+      color: var(--ink-900);
+      position: relative;
+      overflow: visible;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
       .welcome-hero-dashboard h1 {
         font-size: 1.35rem;
       }
@@ -2732,6 +2756,35 @@
         letter-spacing: -0.7px;
       }
     }
+
+    /* Premium Dotted Particle Animations */
+    .particle-mesh-container svg circle {
+      transform-origin: center;
+      animation: particleFloat 6s ease-in-out infinite alternate;
+      transition: transform 0.3s ease-out;
+    }
+    .particle-mesh-container svg circle:hover {
+      transform: scale(2);
+      opacity: 0.9 !important;
+    }
+    .particle-mesh-container svg circle:nth-child(2n) {
+      animation-delay: -1.5s;
+      animation-duration: 8s;
+    }
+    .particle-mesh-container svg circle:nth-child(3n) {
+      animation-delay: -3s;
+      animation-duration: 10s;
+    }
+    .particle-mesh-container svg circle:nth-child(4n) {
+      animation-delay: -4.5s;
+      animation-duration: 7s;
+    }
+    @keyframes particleFloat {
+      0% { transform: translate(0, 0); }
+      50% { transform: translate(-5px, 3px); }
+      100% { transform: translate(3px, -5px); }
+    }
+    
     </style>
 
 </head>
@@ -2740,43 +2793,37 @@
   <div class="app-layout">
     
     <!-- NEW TOP HEADER BAR -->
-    <header class="app-header-top">
+    <!-- NEW TOP HEADER BAR -->
+    <header class="app-header-top" style="background: #ffffff; border-bottom: 1px solid rgba(33, 34, 38, 0.05); padding: 0.8rem 2rem;">
       <div class="header-logo-container">
-        <div class="logo">
-          <img src="./logo.svg" alt="centari Logo" />
-          <span class="logo-serif" style="font-weight: 700; color: var(--ink-900);">centari</span>
+        <div class="logo" style="display: flex; align-items: center; gap: 0.4rem; font-family: 'Google Sans Flex', 'Google Sans', sans-serif;">
+          <img src="./logo.svg" alt="centari Logo" style="height: 20px; width: auto;" />
+          <span class="logo-serif" style="font-weight: 500; font-size: 1.15rem; color: var(--ink-900); letter-spacing: -0.025em;">centari</span>
         </div>
       </div>
       
-      <nav class="header-navbar" role="navigation" aria-label="LMS Portal Top Navigation">
-        <a href="index.html" class="side-nav-btn active" id="tab-dashboard" onclick="event.preventDefault(); CentariApp.routeToTab('dashboard')">Dashboard</a>
+      <nav class="header-navbar" role="navigation" aria-label="LMS Portal Top Navigation" style="font-family: 'Google Sans Flex', 'Google Sans', sans-serif;">
+        <a href="index.html" class="side-nav-btn active" id="tab-dashboard" onclick="event.preventDefault(); CentariApp.routeToTab('dashboard')">Products</a>
         <a href="pricing.html" class="side-nav-btn" id="tab-pricing">Pricing</a>
         <a href="contact.html" class="side-nav-btn" id="tab-contact">Contact</a>
       </nav>
       
-      <div class="header-controls">
-        <!-- Dynamic Color Palette Switcher -->
-        <div style="display: flex; gap: 0.4rem; align-items: center; background: rgba(30, 41, 59, 0.04); padding: 0.25rem 0.4rem; border-radius: 20px; border: 1px solid var(--sand-200); margin-right: 0.5rem;">
-          <button class="color-dot active" data-color="blue" onclick="CentariApp.switchThemeColor('blue')" style="background: #2563eb;" title="Blue Theme"></button>
-          <button class="color-dot" data-color="purple" onclick="CentariApp.switchThemeColor('purple')" style="background: #7c3aed;" title="Purple Theme"></button>
-          <button class="color-dot" data-color="green" onclick="CentariApp.switchThemeColor('green')" style="background: #059669;" title="Green Theme"></button>
-          <button class="color-dot" data-color="orange" onclick="CentariApp.switchThemeColor('orange')" style="background: #d97706;" title="Orange Theme"></button>
+            <div class="header-controls" style="display: flex; align-items: center; gap: 0.75rem;">
+        <!-- Sleek Google-style Color Theme dots switcher -->
+        <div style="display: flex; gap: 0.45rem; align-items: center; background: rgba(0, 0, 0, 0.03); padding: 0.25rem 0.5rem; border-radius: 20px; border: 1px solid rgba(0, 0, 0, 0.04);">
+          <button class="color-dot active" data-color="blue" onclick="CentariApp.switchThemeColor('blue')" style="background: #3279F9; width: 12px; height: 12px; border-radius: 50%; border: 1.5px solid transparent; cursor: pointer; padding: 0; transition: transform 0.1s;" title="Blue Theme" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'"></button>
+          <button class="color-dot" data-color="purple" onclick="CentariApp.switchThemeColor('purple')" style="background: #8b5cf6; width: 12px; height: 12px; border-radius: 50%; border: 1.5px solid transparent; cursor: pointer; padding: 0; transition: transform 0.1s;" title="Purple Theme" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'"></button>
+          <button class="color-dot" data-color="green" onclick="CentariApp.switchThemeColor('green')" style="background: #059669; width: 12px; height: 12px; border-radius: 50%; border: 1.5px solid transparent; cursor: pointer; padding: 0; transition: transform 0.1s;" title="Green Theme" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'"></button>
+          <button class="color-dot" data-color="orange" onclick="CentariApp.switchThemeColor('orange')" style="background: #d97706; width: 12px; height: 12px; border-radius: 50%; border: 1.5px solid transparent; cursor: pointer; padding: 0; transition: transform 0.1s;" title="Orange Theme" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'"></button>
         </div>
-
-
-
-        <button class="control-btn" id="theme-toggle-btn" aria-label="Toggle Dark Mode" onclick="CentariApp.toggleDarkMode()">
-          <!-- Sun icon when in dark mode, Moon icon when in light mode -->
-          <svg id="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-          <svg id="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="4.22" x2="19.78" y2="5.64"></line></svg>
+        
+        <!-- Dark Mode Toggle Button -->
+        <button id="dark-mode-toggle" onclick="CentariApp.toggleDarkMode()" style="background: transparent; border: none; color: var(--ink-700); padding: 0.3rem; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background-color 0.2s;" onmouseover="this.style.backgroundColor='rgba(0,0,0,0.03)'" onmouseout="this.style.backgroundColor='transparent'">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="width: 18px; height: 18px;"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
         </button>
 
+        <button onclick="CentariApp.routeToTab('contact')" class="landing-btn-primary" style="padding: 0.45rem 1.25rem; font-size: 0.85rem; border-radius: 9999px;">Request a Demo</button>
       </div>
-      
-      <!-- Mobile hamburger -->
-      <button class="nav-hamburger" id="mobile-hamburger" aria-label="Toggle Navigation menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
     </header>
 
     <!-- RIGHT MAIN CONTENT PANEL -->
@@ -2788,65 +2835,78 @@
       <section class="view-pane active" id="view-dashboard" role="tabpanel" aria-labelledby="tab-dashboard">
         
         <!-- Welcome Hero Info matching Antigravity style -->
-        <div class="welcome-hero-dashboard" style="display: flex; align-items: center; justify-content: space-between; gap: 2rem; padding: 2rem 0;">
-          <div style="flex: 1; min-width: 0;">
-            <span class="badge-candidate-portal" style="background: rgba(50, 121, 249, 0.08); color: #3279F9; font-weight: 500; padding: 0.25rem 0.6rem; border-radius: 9999px; font-size: 0.75rem; font-family: var(--font-body); letter-spacing: 0.02em;">Interactive Demo Sandbox</span>
-            <h1 class="landing-main-title">Learn the new way.</h1>
-            <p class="dashboard-subtext" style="font-size: 1.05rem; color: var(--ink-500); line-height: 1.5; max-width: 520px; margin-bottom: 1.25rem;">Enterprise learning management suite designed to orchestrate video lectures, low-latency live streams, and secure mock exams.</p>
-            <div style="display: flex; gap: 0.75rem; margin-top: 1rem; flex-wrap: wrap;">
-              <button onclick="CentariApp.routeToTab('contact')" class="landing-btn-primary">Request a Demo</button>
-              <button onclick="CentariApp.routeToTab('exams')" class="landing-btn-secondary">Explore Simulator</button>
-            </div>
+        <div class="welcome-hero-dashboard">
+          
+          <!-- Radiating Particle Field using Centari's 4 Brand Colors (Blue, Purple, Green, Orange) matching Google Antigravity -->
+          <div class="particle-mesh-container" style="position: absolute; width: 100vw; height: 100%; top: 0; left: 50%; transform: translateX(-50%); z-index: 1; pointer-events: none; overflow: hidden;">
+            <svg width="100%" height="100%" viewBox="0 0 1440 600" preserveAspectRatio="none" style="overflow: visible; opacity: 0.95;">
+              <!-- Concentric radiating clusters of Google-style dots in Centari's 4 colors -->
+              
+              <!-- Inner ring (Blue & Purple) -->
+              <g transform="translate(720, 240)">
+                <circle cx="-120" cy="-40" r="2.5" fill="#3279F9" opacity="0.45" />
+                <circle cx="100" cy="-60" r="3" fill="#8b5cf6" opacity="0.4" />
+                <circle cx="-80" cy="80" r="3.5" fill="#3279F9" opacity="0.35" />
+                <circle cx="120" cy="90" r="2" fill="#8b5cf6" opacity="0.5" />
+                
+                <!-- Middle ring (Green & Orange) -->
+                <circle cx="-240" cy="-120" r="3.5" fill="#059669" opacity="0.3" />
+                <circle cx="280" cy="-80" r="3" fill="#d97706" opacity="0.35" />
+                <circle cx="-200" cy="160" r="4" fill="#059669" opacity="0.4" />
+                <circle cx="260" cy="180" r="3.5" fill="#d97706" opacity="0.3" />
+                
+                <!-- Outer expanding field (Mix of all 4) -->
+                <circle cx="-380" cy="-190" r="3.5" fill="#3279F9" opacity="0.2" />
+                <circle cx="410" cy="-210" r="4" fill="#059669" opacity="0.25" />
+                <circle cx="-420" cy="220" r="3" fill="#8b5cf6" opacity="0.25" />
+                <circle cx="390" cy="240" r="4.5" fill="#d97706" opacity="0.2" />
+                
+                <!-- Dense bottom expansions radiating outwards -->
+                <circle cx="-560" cy="-80" r="4" fill="#3279F9" opacity="0.35" />
+                <circle cx="-500" cy="120" r="3.5" fill="#8b5cf6" opacity="0.3" />
+                <circle cx="-620" cy="280" r="5" fill="#059669" opacity="0.25" />
+                <circle cx="-480" cy="320" r="3" fill="#d97706" opacity="0.4" />
+                
+                <circle cx="580" cy="-70" r="3.5" fill="#059669" opacity="0.3" />
+                <circle cx="510" cy="130" r="4.5" fill="#d97706" opacity="0.35" />
+                <circle cx="640" cy="260" r="3.5" fill="#3279F9" opacity="0.25" />
+                <circle cx="490" cy="340" r="5" fill="#8b5cf6" opacity="0.3" />
+                
+                <!-- Extra tiny scattered particles -->
+                <circle cx="-160" cy="-180" r="2" fill="#3279F9" opacity="0.4" />
+                <circle cx="180" cy="-170" r="2.5" fill="#8b5cf6" opacity="0.4" />
+                <circle cx="-300" cy="40" r="2" fill="#059669" opacity="0.3" />
+                <circle cx="340" cy="20" r="2.5" fill="#d97706" opacity="0.35" />
+                
+                <circle cx="-680" cy="-140" r="4" fill="#8b5cf6" opacity="0.15" />
+                <circle cx="-620" cy="40" r="3" fill="#3279F9" opacity="0.2" />
+                <circle cx="-710" cy="180" r="4.5" fill="#d97706" opacity="0.15" />
+                
+                <circle cx="690" cy="-150" r="3.5" fill="#3279F9" opacity="0.2" />
+                <circle cx="630" cy="50" r="4" fill="#059669" opacity="0.25" />
+                <circle cx="700" cy="190" r="3" fill="#8b5cf6" opacity="0.15" />
+              </g>
+            </svg>
           </div>
-          <div class="mascot-container" style="flex-shrink: 0; width: 220px; height: 220px; display: flex; align-items: center; justify-content: center;">
-            <img src="./logo.svg" id="hero-mascot" alt="centari Logo" style="max-width: 95%; max-height: 95%; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.06)); transition: transform 0.15s ease-out;" />
-          </div>
-        </div>
 
-        <!-- Section Title: Designed for Institutions Like Yours -->
-        <div class="section-title-dashboard" style="margin-bottom: 0.8rem;">
-          <span class="section-title-text blue">Designed for Institutions Like Yours</span>
-        </div>
-        
-        <!-- Trusted by / Simulator Buttons Cards Grid -->
-        <div class="dashboard-stats-grid">
-          <div class="stat-card-dashboard blue">
-            <div class="stat-card-icon-box">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          <!-- Hero Content Elements Centered -->
+          <div style="z-index: 5; position: relative; max-width: 840px; display: flex; flex-direction: column; align-items: center;">
+            <div style="display: flex; align-items: center; gap: 0.4rem; margin-bottom: 1.5rem;">
+              <img src="./logo.svg" alt="centari Logo" style="height: 24px; width: auto;" />
+              <span class="logo-serif" style="font-weight: 500; font-size: 1.25rem; color: var(--ink-900); letter-spacing: -0.02em;">centari</span>
             </div>
-            <div class="stat-card-info">
-              <span class="stat-card-label" style="font-weight:700;">MCQ Exam Suite</span>
-              <span class="stat-card-value" style="font-size:0.8rem; font-weight:500; opacity:0.9;">UPSC/NEET/JEE</span>
-            </div>
-          </div>
-          
-          <div class="stat-card-dashboard purple">
-            <div class="stat-card-icon-box">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-            </div>
-            <div class="stat-card-info">
-              <span class="stat-card-label" style="font-weight:700;">Secure DRM Player</span>
-              <span class="stat-card-value" style="font-size:0.8rem; font-weight:500; opacity:0.9;">AES Decryption</span>
-            </div>
-          </div>
-          
-          <div class="stat-card-dashboard green">
-            <div class="stat-card-icon-box">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M23 7l-7 5 7 5V7z"></path><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
-            </div>
-            <div class="stat-card-info">
-              <span class="stat-card-label" style="font-weight:700;">Live Classroom</span>
-              <span class="stat-card-value" style="font-size:0.8rem; font-weight:500; opacity:0.9;">Vector Whiteboard</span>
-            </div>
-          </div>
-          
-          <div class="stat-card-dashboard orange">
-            <div class="stat-card-icon-box">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
-            </div>
-            <div class="stat-card-info">
-              <span class="stat-card-label" style="font-weight:700;">Stats Ranking</span>
-              <span class="stat-card-value" style="font-size:0.8rem; font-weight:500; opacity:0.9;">Gamified Leaderboard</span>
+            
+            <h1 class="landing-main-title" style="font-size: 3.8rem; font-weight: 450; line-height: 1.06; letter-spacing: -2px; text-align: center; margin-bottom: 1.25rem;">
+              Experience liftoff with the next-gen learning suite
+            </h1>
+            
+            <p class="dashboard-subtext" style="font-size: 1.15rem; color: var(--ink-500); line-height: 1.5; max-width: 580px; text-align: center; margin-bottom: 2rem;">
+              Enterprise learning management suite designed to orchestrate video lectures, low-latency live streams, and secure mock exams.
+            </p>
+            
+            <div style="display: flex; gap: 0.85rem; justify-content: center; flex-wrap: wrap;">
+              <button onclick="CentariApp.routeToTab('contact')" class="landing-btn-primary" style="padding: 0.75rem 1.85rem; font-size: 0.92rem;">Request a Demo</button>
+              <button onclick="CentariApp.routeToTab('exams')" class="landing-btn-secondary" style="padding: 0.75rem 1.85rem; font-size: 0.92rem;">Explore Simulator</button>
             </div>
           </div>
         </div>
